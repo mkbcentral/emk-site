@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="{{ asset('logo.jpg') }}" sizes="any">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
@@ -45,7 +46,9 @@
 <body class="font-['Poppins'] bg-gray-50 text-gray-800">
     <!-- Scroll Progress Indicator -->
     <div id="scroll-progress" class="h-1 bg-blue-500 fixed top-0 left-0 z-[100] w-0"></div>
+    @include('partials.navabar')
     {{ $slot }}
+    @include('partials.footer')
     <script src="{{ asset('main.js') }}"></script>
     @stack('scripts')
 </body>

@@ -6,11 +6,11 @@
                 <div>
                     <img src="{{ asset('logo.jpg') }}" alt="EMK Logo" class="h-10 w-auto">
                     <div>
-                        <h3 class="text-xl font-bold">EMK</h3>
+                        <h3 class="text-xl font-bold">{{ config('app.name') }}</h3>
                         <p class="text-sm text-gray-400">Cabinet Juridique de Suivi Minier</p>
                     </div>
                 </div>
-                <p class="text-gray-400">Votre partenaire juridique de confiance dans le secteur minier depuis 2010.</p>
+                <p class="text-gray-400">Votre partenaire juridique de confiance dans le secteur minier.</p>
                 <div class="flex space-x-4 mt-4">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
                         <i class="fab fa-facebook-f"></i>
@@ -58,17 +58,17 @@
                 <h4 class="text-lg font-semibold mb-4">Contact</h4>
                 <div class="space-y-2">
                     <p class="flex items-center text-gray-400">
-                        <i class="fas fa-map-marker-alt w-5 mr-2 text-blue-500"></i>
-                        123 Avenue Minière, Kinshasa, RDC
+                        03, Avenue Pierre Malagano, Route des Poids lourds,
+                        Terminus Golf Faustin, Commune de
+                        Lubumbashi, Lubumbashi Haut-Katanga RDC.
                     </p>
                     <p class="flex items-center text-gray-400">
                         <i class="fas fa-phone w-5 mr-2 text-blue-500"></i>
-                        +243 12 345 6789
+                        +243 995 226 900
                     </p>
                     <p class="flex items-center text-gray-400">
                         <i class="fas fa-envelope w-5 mr-2 text-blue-500"></i>
-                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                            data-cfemail="33505c5d4752504773565e585052515a5d56471d505c5e">[email&#160;protected]</a>
+                        emkminesoffice.rdc@gmail.com
                     </p>
                     <a href="index.html#contact"
                         class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors duration-300 flex items-center space-x-2">

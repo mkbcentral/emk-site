@@ -14,11 +14,11 @@
                 <div class="flex items-center space-x-10 mb-8">
                     <div class="flex items-center space-x-3">
                         <i class="fas fa-phone text-blue-300 text-xl"></i>
-                        <span class="text-blue-100 text-lg">+243 971 330 007</span>
+                        <span class="text-blue-100 text-lg">+243 995 226 900</span>
                     </div>
                     <div class="flex items-center space-x-3">
                         <i class="fas fa-envelope text-blue-300 text-xl"></i>
-                        <span class="text-blue-100 text-lg">contact@emk.com</span>
+                        <span class="text-blue-100 text-lg">emkminesoffice.rdc@gmail.com</span>
                     </div>
                     <div class="flex items-center space-x-6">
                         <a href="#"
@@ -40,14 +40,16 @@
                         <a href="#" class="text-blue-300 hover:text-white transition-colors duration-300">EN</a>
                     </div>
                 </div>
-
                 <nav>
                     <ul class="flex space-x-6">
-                        <li><a href="index.html"
-                                class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md nav-link active">Accueil</a>
+                        <li>
+                            <a href="/"
+                                class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md nav-link active">
+                                Accueil
+                            </a>
                         </li>
                         <li class="relative group">
-                            <a href="presentation.html"
+                            <a href="#"
                                 class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md flex items-center nav-link">
                                 Présentation
                                 <i
@@ -55,22 +57,35 @@
                             </a>
                             <ul
                                 class="absolute left-0 mt-2 w-48 bg-gradient-to-b from-gray-200 to-white rounded-lg shadow-lg py-2 hidden group-hover:block transition-all duration-300 z-50">
-                                <li><a href="directeur.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Directeur
-                                        Général</a></li>
-                                <li><a href="historique.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Historique</a>
+                                <li>
+                                    <a href="{{ route('historique') }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                        Historique
+                                    </a>
                                 </li>
-                                <li><a href="galerie.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Galerie</a>
+                                <li>
+                                    <a href="directeur.html"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                        Directeur Général
+                                    </a>
                                 </li>
-                                <li><a href="sponsors.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">Nos
-                                        Sponsors</a></li>
+                                <li>
+                                    <a href="directeur.html"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                        Réalisation
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="sponsors.html"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
+                                        Nos Sponsors
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="relative group">
-                            <a href="expertise.html"
+                            <a href="#"
                                 class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md flex items-center nav-link">
                                 Expertise
                                 <i
@@ -78,40 +93,76 @@
                             </a>
                             <ul
                                 class="absolute left-0 mt-2 w-48 bg-gradient-to-b from-gray-200 to-white rounded-lg shadow-lg py-2 hidden group-hover:block transition-all duration-300 z-50">
-                                <li><a href="droit-minier.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Droit
-                                        minier</a></li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                        Legislation
+                                    </a>
+                                </li>
                                 <li class="relative group/submenu">
-                                    <a href="contrats-miniers.html"
+                                    <a href="#"
                                         class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200 flex items-center justify-between">
-                                        Contrats miniers
+                                        Traitement des dossiers
                                         <i class="fas fa-chevron-right ml-2 text-sm"></i>
                                     </a>
                                     <ul
                                         class="absolute left-full top-0 w-48 bg-gradient-to-b from-gray-200 to-white rounded-lg shadow-lg py-2 hidden group-hover/submenu:block transition-all duration-300 z-50">
-                                        <li><a href="contrats-exploration.html"
-                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Contrats
-                                                d'exploration</a></li>
-                                        <li><a href="contrats-exploitation.html"
-                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Contrats
-                                                d'exploitation</a></li>
-                                        <li><a href="partenariats.html"
-                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">Partenariats
-                                                miniers</a></li>
+                                        <li>
+                                            <a href="#"
+                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                                Consultation
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                                Ouverture de dossiers
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
+                                                Etude de dossiers
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
+                                                Procedures et redaction des actes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                                class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
+                                                Formulaire
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li><a href="litiges-miniers.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">Litiges
-                                        miniers</a></li>
-                                <li><a href="conformite-esg.html"
-                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">Conformité
-                                        ESG</a></li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
+                                        Pratique juridique
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
+                                        Pratique fiscale
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
+                                        Actes de procédures
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html"
+                        <li><a href="{{ route('galerie') }}"
                                 class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md nav-link">Galerie</a>
                         </li>
-                        <li><a href="contact.html"
+                        <li><a href="{{ route('contact') }}"
                                 class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md nav-link">Contact</a>
                         </li>
                     </ul>

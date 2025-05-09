@@ -9,6 +9,23 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/contact', function () {
+    return view('contact-page');
+})->name('contact');
+Route::get('/galerie', function () {
+    return view('galerie-page');
+})->name('galerie');
+
+Route::prefix('presentation')->group(function () {
+    Route::get('historique', function () {
+        return view('presentation.historique');
+    })->name('historique');
+});
+
+
+
+
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -21,4 +38,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
