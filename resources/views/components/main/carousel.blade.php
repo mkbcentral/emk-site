@@ -24,7 +24,7 @@
             </div>
             <!-- Slide 2 -->
             <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center"
-                style="background-size: 150%; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('expertises.jpg')">
+                style="background-size: 150%; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('expertise.jpg')">
                 <div class="flex justify-start items-center w-full h-full px-6">
                     <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg p-6 text-center text-white max-w-2xl mt-16"
                         data-aos="fade-right" data-aos-duration="1000">
@@ -43,7 +43,7 @@
 
             <!-- Slide 3 -->
             <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center"
-                style="background-size: 150%; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('expertisess.jpg')">
+                style="background-size: 150%; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('expertise.jpg')">
                 <div class="flex justify-end items-center w-full h-full px-6">
                     <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg p-6 text-center text-white max-w-2xl mt-16"
                         data-aos="fade-left" data-aos-duration="1000">
