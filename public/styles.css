@@ -4,6 +4,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -15,6 +16,7 @@
         opacity: 0;
         transform: translateX(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -26,6 +28,7 @@
         opacity: 0;
         transform: translateX(20px);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -37,6 +40,7 @@
         opacity: 0;
         transform: scale(0.8);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -48,25 +52,52 @@
     animation-fill-mode: both;
 }
 
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
 
 /* Animation spécifiques pour le carousel */
 .carousel-slide.active [data-animation="slide-up"] {
-    animation: fadeInUp 1s forwards;
+    animation: fadeInUp 0.8s ease-out forwards;
     animation-delay: var(--delay, 0ms);
 }
 
-.carousel-slide.active [data-animation="slide-right"] {
-    animation: fadeInRight 1s forwards;
+.carousel-slide.active [data-animation="zoom-in"] {
+    animation: zoomIn 0.8s ease-out forwards;
+    animation-delay: 400ms;
 }
 
-.carousel-slide.active [data-animation="zoom-in"] {
-    animation: zoomIn 1s forwards;
-    animation-delay: 500ms;
+.carousel-slide.active [data-animation="zoom-out"] {
+    animation: zoomOut 0.8s ease-out forwards;
+    animation-delay: 200ms;
+}
+
+@keyframes zoomOut {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Animation supplémentaire pour la section contact */
@@ -105,7 +136,7 @@
 }
 
 /* Multi-level dropdown menu styling */
-.group > submenu:hover > a {
+.group>submenu:hover>a {
     background-color: #dbeafe;
     color: #1e40af;
 }
@@ -116,7 +147,7 @@
 }
 
 /* Better positioning for submenu */
-.group > submenu {
+.group>submenu {
     position: relative;
 }
 
@@ -164,10 +195,12 @@
         transform: scale(1);
         opacity: 0.4;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 0.6;
     }
+
     100% {
         transform: scale(1);
         opacity: 0.4;
@@ -177,12 +210,15 @@
 /* Gallery styles */
 .gallery-scroller {
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
 }
 
 .gallery-scroller::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .gallery-item {
@@ -198,7 +234,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.6) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -209,8 +245,13 @@
 
 /* Enhanced smooth scroll animation */
 @keyframes scrollEffect {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(var(--scroll-distance)); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(var(--scroll-distance));
+    }
 }
 
 .gallery-scroller.animating {
@@ -268,9 +309,11 @@
     0% {
         transform: translateY(0px) rotate(0deg);
     }
+
     50% {
         transform: translateY(-10px) rotate(1deg);
     }
+
     100% {
         transform: translateY(0px) rotate(0deg);
     }
@@ -333,6 +376,7 @@
 #header.scrolled {
     backdrop-filter: blur(8px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
 }
 
 #header.scrolled .py-8 {

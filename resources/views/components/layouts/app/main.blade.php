@@ -49,6 +49,13 @@
     @include('partials.navabar')
     {{ $slot }}
     @include('partials.footer')
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
     <script src="{{ asset('main.js') }}"></script>
     @stack('scripts')
 </body>
