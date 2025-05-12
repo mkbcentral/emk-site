@@ -7,7 +7,9 @@
                     <img src="{{ asset('logo.jpg') }}" alt="EMK Logo" class="h-10 w-auto">
                     <div>
                         <h3 class="text-xl font-bold">{{ config('app.name') }}</h3>
-                        <p class="text-sm text-gray-400">Cabinet Juridique de Suivi Minier</p>
+                        <p class="text-sm text-gray-400">
+                            Cabinet mandataire en mines et carrières
+                        </p>
                     </div>
                 </div>
                 <p class="text-gray-400">Votre partenaire juridique de confiance dans le secteur minier.</p>
@@ -71,16 +73,18 @@
                         emkminesoffice.rdc@gmail.com
                     </p>
                     <a href="index.html#contact"
-                        class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors duration-300 flex items-center space-x-2">
-                        <span>Contactez-nous</span>
-                        <i class="fas fa-arrow-right"></i>
+                        class=" mt-4 bg-blue-700 text-white px-4 py-2
+                        rounded-lg font-medium hover:bg-blue-800
+                         transition-colors duration-300 flex
+                          items-center space-x-2">
+                        Contactez-nous <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-400 text-sm">&copy; 2023 EMK Cabinet Juridique. Tous droits réservés.</p>
+            <p class="text-gray-400 text-sm">&copy; 2025 {{ config('app.name') }}. Tous droits réservés.</p>
             <div class="flex space-x-4 mt-4 md:mt-0">
                 <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
                     <i class="fab fa-facebook-f"></i>

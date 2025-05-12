@@ -4,7 +4,8 @@
         <div class="container mx-auto px-4 py-16">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Notre Histoire</h1>
-                <p class="text-xl text-blue-100 mb-8">Découvrez l'évolution d'EMK Cabinet Juridique depuis sa fondation
+                <p class="text-xl text-blue-100 mb-8">Découvrez l'évolution d'{{ config('app.name') }} Cabinet Juridique
+                    depuis sa fondation
                 </p>
             </div>
         </div>
@@ -72,13 +73,15 @@
                     <div class="lg:w-3/4">
                         <!-- Fondation Section -->
                         <div id="fondation" class="history-section">
-                            <h2 class="text-3xl font-bold text-blue-900 mb-6">La fondation d'EMK</h2>
+                            <h2 class="text-3xl font-bold text-blue-900 mb-6">La fondation d'{{ config('app.name') }}
+                            </h2>
 
                             <div class="mb-8">
                                 <img src="{{ asset('expertise3.jpg') }}" alt="Premiers bureaux EMK"
                                     class="w-full h-80 object-cover object-center rounded-xl shadow-md mb-4">
-                                <p class="text-gray-500 text-sm italic">Les premiers bureaux d'EMK Cabinet Juridique à
-                                    Lubumbashi, 2025</p>
+                                <p class="text-gray-500 text-sm italic">
+                                    Les premiers bureaux
+                                    d'{{ config('app.name') }} Cabinet mandataire en mines et carrières</p>
                             </div>
 
                             <div class="prose max-w-none text-gray-700 space-y-4">

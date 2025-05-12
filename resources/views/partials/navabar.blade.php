@@ -77,7 +77,7 @@
                                       </a>
                                   </li>
                                   <li>
-                                      <a href="directeur.html"
+                                      <a href="{{ route('ceo') }}"
                                           class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
                                           Directeur Général
                                       </a>
@@ -86,13 +86,6 @@
                                       <a href="directeur.html"
                                           class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
                                           Réalisation
-                                      </a>
-                                  </li>
-
-                                  <li>
-                                      <a href="sponsors.html"
-                                          class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300">
-                                          Nos Sponsors
                                       </a>
                                   </li>
                               </ul>
@@ -172,10 +165,10 @@
                                   </li>
                               </ul>
                           </li>
-                          <li><a href="contact.html"
+                          <li><a href="{{ route('galerie') }}"
                                   class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md nav-link">Galerie</a>
                           </li>
-                          <li><a href="contact.html"
+                          <li><a href="{{ route('contact') }}"
                                   class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md nav-link">Contact</a>
                           </li>
                       </ul>

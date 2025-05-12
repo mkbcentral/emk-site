@@ -20,6 +20,9 @@ Route::prefix('presentation')->group(function () {
     Route::get('historique', function () {
         return view('presentation.historique');
     })->name('historique');
+    Route::get('ceo', function () {
+        return view('presentation.ceo-page');
+    })->name('ceo');
 });
 
 
