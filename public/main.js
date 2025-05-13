@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update carousel position and active states
         function updateCarousel() {
-            //carouselInner.style.transition = 'transform 0.7s cubic-bezier(0.33, 1, 0.68, 1)';
+            carouselInner.style.transition = 'transform 0.7s cubic-bezier(0.33, 1, 0.68, 1)';
             carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
             
             // Remove active class from all slides and add to current
@@ -203,7 +203,52 @@ document.addEventListener('DOMContentLoaded', function() {
                         bgImage.style.transition = 'transform 0.7s ease-out';
                     }
                     
-                   
+                    // Update hero content based on slide index
+                    const heroElement = document.querySelector('.max-w-2xl');
+                    if (heroElement) {
+                        if (index === 0) {
+                            heroElement.innerHTML = `
+                                <h2 class="text-4xl md:text-5xl font-bold mb-4 hero-element animate-fade-scale">Bienvenue chez EMK</h2>
+                                <p class="text-xl mb-8 hero-element animate-fade-scale delay-200">Votre partenaire juridique de confiance dans le secteur minier</p>
+                                <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-fade-scale delay-400">
+                                    Nos services
+                                </button>
+                            `;
+                        } else if (index === 1) {
+                            heroElement.innerHTML = `
+                                <div class="text-left max-w-xl ml-10 mt-24">
+                                    <h2 class="text-5xl md:text-6xl font-bold mb-4 hero-element animate-slide-up">Expertise Juridique</h2>
+                                    <p class="text-xl md:text-2xl mb-8 hero-element animate-slide-up delay-200">Des solutions sur mesure pour tous vos défis juridiques miniers. Notre équipe d'experts vous accompagne dans toutes les étapes de vos projets, de l'exploration à l'exploitation, en passant par la négociation des contrats et la résolution des litiges.</p>
+                                    <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400 text-lg">
+                                        Découvrir notre expertise
+                                    </button>
+                                </div>
+                            `;
+                        } else if (index === 2) {
+                            heroElement.innerHTML = `
+                                <div class="text-left max-w-xl ml-10 mt-24">
+                                    <h2 class="text-5xl md:text-6xl font-bold mb-4 hero-element animate-slide-up">Excellence Professionnelle</h2>
+                                    <p class="text-xl md:text-2xl mb-8 hero-element animate-slide-up delay-200">Plus de 20 ans d'expérience au service de l'industrie minière. Notre cabinet s'engage à offrir des services juridiques de la plus haute qualité, combinant expertise technique, connaissance approfondie du secteur et approche personnalisée pour chaque client.</p>
+                                    <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400 text-lg">
+                                        Contactez-nous
+                                    </button>
+                                </div>
+                            `;
+                        }
+                        
+                        // Re-animate hero elements
+                        const newHeroElements = heroElement.querySelectorAll('.hero-element');
+                        newHeroElements.forEach((el, i) => {
+                            el.style.opacity = '0';
+                            el.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                                el.style.transitionDelay = `${i * 0.1 + 0.3}s`;
+                                el.style.opacity = '1';
+                                el.style.transform = 'translateY(0)';
+                            }, 50);
+                        });
+                    }
                 } else {
                     slide.classList.remove('active');
                     slide.style.opacity = '0.7';
