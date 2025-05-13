@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
         .sponsors-wave {
             position: absolute;
@@ -39,6 +40,11 @@
                 transform: translateY(0px);
             }
         }
+
+        #contact-info-section {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: top;
+        }
     </style>
     @stack('styles')
 </head>
@@ -48,15 +54,21 @@
     <div id="scroll-progress" class="h-1 bg-blue-500 fixed top-0 left-0 z-[100] w-0"></div>
     @include('partials.navabar')
     {{ $slot }}
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 bg-blue-700 hover:bg-blue-800 text-white w-12 h-12 rounded-full shadow-lg z-50 hidden items-center justify-center transition-all duration-300 transform hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     @include('partials.footer')
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="{{ asset('main.js') }}"></script>
+
     <!-- AOS JS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
 
-    <script src="{{ asset('main.js') }}"></script>
+
     @stack('scripts')
 </body>
 

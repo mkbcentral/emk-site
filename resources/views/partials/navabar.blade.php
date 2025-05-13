@@ -1,41 +1,39 @@
   <!-- Header avec animation -->
-  <header class="bg-transparent scrolled text-white shadow-lg fixed w-full z-50 transition-all duration-300"
-      id="header">
-      <!-- Contact Information Section with white background -->
-      <div class="bg-white text-gray-800 w-full">
+  <header class="bg-transparent text-white  fixed w-full z-50 transition-all duration-300" id="header">
+      <div class="bg-white text-gray-800 w-full transition-all duration-300" id="contact-info-section">
           <div class="container mx-auto px-4">
-              <div class="hidden md:flex items-center justify-between py-3">
-                  <div class="flex items-center space-x-10">
+              <div class="hidden md:flex justify-between items-center py-3">
+                  <div class="flex items-center space-x-8 header-contact-info">
                       <div
-                          class="flex items-center space-x-3 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
-                          <i class="fas fa-phone text-blue-500 text-lg"></i>
-                          <span class="text-gray-600 text-sm">+243 12 345 6789</span>
+                          class="flex items-center space-x-2 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
+                          <i class="fas fa-phone text-gray-700 text-sm"></i>
+                          <span class="text-gray-700 text-sm">+243 12 345 6789</span>
                       </div>
                       <div
-                          class="flex items-center space-x-3 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
-                          <i class="fas fa-envelope text-blue-500 text-lg"></i>
-                          <span class="text-gray-600 text-sm">contact@emkcabinet.com</span>
+                          class="flex items-center space-x-2 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
+                          <i class="fas fa-envelope text-gray-700 text-sm"></i>
+                          <span class="text-gray-700 text-sm">contact@emkminesoffice.org</span>
                       </div>
                   </div>
-                  <div class="flex items-center space-x-6">
+                  <div class="flex items-center space-x-5">
                       <a href="#"
-                          class="text-blue-500 hover:text-blue-700 transition-colors duration-300 text-xl">
+                          class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm">
                           <i class="fab fa-facebook-f"></i>
                       </a>
                       <a href="#"
-                          class="text-blue-500 hover:text-blue-700 transition-colors duration-300 text-xl">
+                          class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm">
                           <i class="fab fa-linkedin-in"></i>
                       </a>
                       <a href="#"
-                          class="text-blue-500 hover:text-blue-700 transition-colors duration-300 text-xl">
+                          class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm">
                           <i class="fab fa-twitter"></i>
                       </a>
-                      <div class="flex items-center space-x-2 ml-6 border-l border-gray-300 pl-6">
+                      <div class="flex items-center space-x-2 ml-5 border-l border-gray-300 pl-5">
                           <a href="#"
-                              class="text-gray-600 hover:text-blue-700 transition-colors duration-300 text-sm">FR</a>
+                              class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs">FR</a>
                           <span class="text-gray-400">|</span>
                           <a href="#"
-                              class="text-blue-500 hover:text-blue-700 transition-colors duration-300 text-sm">EN</a>
+                              class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs">EN</a>
                       </div>
                   </div>
               </div>

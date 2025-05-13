@@ -19,14 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (currentScrollY > 100) {
             header.classList.add('scrolled');
-            header.querySelector('.container').classList.add('bg-white');
-            header.classList.add('shadow-lg'); 
-            header.classList.remove('bg-transparent', 'bg-blue-900/95');
+            header.classList.add('bg-white', 'shadow-lg'); 
+            header.classList.remove('bg-transparent', 'bg-blue-900');
+            
+            // Hide entire contact information section when scrolling
+            const contactInfoSection = document.getElementById('contact-info-section');
+            if (contactInfoSection) {
+                contactInfoSection.style.transition = 'all 0.3s ease-in-out';
+                contactInfoSection.style.opacity = '0';
+                contactInfoSection.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    contactInfoSection.classList.add('hidden');
+                }, 300);
+            }
             
             // Change text color to match the white background
-            header.querySelectorAll('.container .text-blue-100, .container .text-white, .container .text-blue-200, .container .text-blue-300').forEach(el => {
+            header.querySelectorAll('.text-gray-700, .text-blue-100, .text-white, .text-blue-200, .text-blue-300').forEach(el => {
                 el.classList.add('text-blue-900');
-                el.classList.remove('text-blue-100', 'text-white', 'text-blue-200', 'text-blue-300');
+                el.classList.remove('text-gray-700', 'text-blue-100', 'text-white', 'text-blue-200', 'text-blue-300');
             });
             
             if (currentScrollY > lastScrollY) {
@@ -37,20 +47,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.style.transform = 'translateY(0)';
             }
         } else {
-            header.classList.remove('scrolled', 'shadow-lg'); 
-            header.querySelector('.container').classList.remove('bg-white');
+            header.classList.remove('scrolled', 'bg-white', 'shadow-lg'); 
             header.classList.add('bg-transparent');
             
+            // Show entire contact information section when at the top
+            const contactInfoSection = document.getElementById('contact-info-section');
+            if (contactInfoSection) {
+                contactInfoSection.classList.remove('hidden');
+                setTimeout(() => {
+                    contactInfoSection.style.opacity = '1';
+                    contactInfoSection.style.transform = 'translateY(0)';
+                }, 50);
+            }
+            
             // Restore original text colors
-            header.querySelectorAll('.container .text-blue-900').forEach(el => {
-                if (el.tagName === 'A') {
+            header.querySelectorAll('.text-blue-900').forEach(el => {
+                if (el.tagName === 'A' && !el.closest('#contact-info-section')) {
                     el.classList.add('text-blue-100');
                 } else if (el.classList.contains('text-4xl')) {
                     el.classList.add('text-white');
                 } else if (el.classList.contains('text-lg') && !el.classList.contains('nav-link')) {
                     el.classList.add('text-blue-200');
-                } else {
+                } else if (!el.closest('#contact-info-section')) {
                     el.classList.add('text-blue-300');
+                } else {
+                    el.classList.add('text-gray-700');
                 }
                 el.classList.remove('text-blue-900');
             });
@@ -165,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update carousel position and active states
         function updateCarousel() {
-            carouselInner.style.transition = 'transform 0.7s cubic-bezier(0.33, 1, 0.68, 1)';
+            //carouselInner.style.transition = 'transform 0.7s cubic-bezier(0.33, 1, 0.68, 1)';
             carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
             
             // Remove active class from all slides and add to current
@@ -174,36 +195,27 @@ document.addEventListener('DOMContentLoaded', function() {
                     slide.classList.add('active');
                     slide.style.opacity = '1';
                     slide.style.transform = 'scale(1)';
+                    
+                    // Add parallax effect to active slide
+                    const bgImage = slide.querySelector('.parallax-bg');
+                    if (bgImage) {
+                        bgImage.style.transform = 'scale(1.1)';
+                        bgImage.style.transition = 'transform 0.7s ease-out';
+                    }
+                    
+                   
                 } else {
                     slide.classList.remove('active');
                     slide.style.opacity = '0.7';
                     slide.style.transform = 'scale(0.95)';
+                    
+                    // Reset parallax effect on non-active slides
+                    const bgImage = slide.querySelector('.parallax-bg');
+                    if (bgImage) {
+                        bgImage.style.transform = 'scale(1)';
+                    }
                 }
             });
-        }
-
-        // Initialize carousel
-        function initCarousel() {
-            slides[0].classList.add('active');
-            slides[0].style.opacity = '1';
-            slides[0].style.transform = 'scale(1)';
-            
-            // Initialize non-active slides
-            for (let i = 1; i < slides.length; i++) {
-                slides[i].style.opacity = '0.7';
-                slides[i].style.transform = 'scale(0.95)';
-            }
-            
-            // Add animation delay to elements
-            slides.forEach(slide => {
-                const animatedElements = slide.querySelectorAll('.animate-slide-up, .animate-zoom-in, .animate-slide-right');
-                animatedElements.forEach((el, index) => {
-                    el.style.setProperty('--delay', `${index * 200}ms`);
-                });
-            });
-            
-            startAutoplay();
-            updateCarousel();
         }
 
         // Go to specific slide
@@ -274,7 +286,55 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Add parallax effect on mouse move
+        carousel.addEventListener('mousemove', (e) => {
+            if (slides[currentSlide]) {
+                const slide = slides[currentSlide];
+                const bgImage = slide.querySelector('.parallax-bg');
+                
+                if (bgImage) {
+                    const { left, top, width, height } = carousel.getBoundingClientRect();
+                    const x = (e.clientX - left) / width - 0.5;
+                    const y = (e.clientY - top) / height - 0.5;
+                    
+                    bgImage.style.transform = `scale(1.1) translate(${x * 20}px, ${y * 20}px)`;
+                }
+            }
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            if (slides[currentSlide]) {
+                const bgImage = slides[currentSlide].querySelector('.parallax-bg');
+                if (bgImage) {
+                    bgImage.style.transform = 'scale(1.1) translate(0, 0)';
+                }
+            }
+        });
+
         // Initialize the carousel
+        function initCarousel() {
+            slides[0].classList.add('active');
+            slides[0].style.opacity = '1';
+            slides[0].style.transform = 'scale(1)';
+            
+            // Initialize non-active slides
+            for (let i = 1; i < slides.length; i++) {
+                slides[i].style.opacity = '0.7';
+                slides[i].style.transform = 'scale(0.95)';
+            }
+            
+            // Add animation delay to elements
+            slides.forEach(slide => {
+                const animatedElements = slide.querySelectorAll('.animate-slide-up, .animate-zoom-in, .animate-slide-right');
+                animatedElements.forEach((el, index) => {
+                    el.style.setProperty('--delay', `${index * 200}ms`);
+                });
+            });
+            
+            startAutoplay();
+            updateCarousel();
+        }
+
         initCarousel();
     }
 
@@ -710,6 +770,54 @@ document.addEventListener('DOMContentLoaded', function() {
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Add scroll buttons functionality for sponsors section
+    const sponsorsContainer = document.querySelector('.sponsors-container');
+    const scrollSponsorsLeftBtn = document.getElementById('scroll-sponsors-left');
+    const scrollSponsorsRightBtn = document.getElementById('scroll-sponsors-right');
+    
+    if (sponsorsContainer && scrollSponsorsLeftBtn && scrollSponsorsRightBtn) {
+        const scrollAmount = 340; // Width of one card + margin
+        
+        scrollSponsorsLeftBtn.addEventListener('click', () => {
+            const currentScroll = sponsorsContainer.scrollLeft;
+            sponsorsContainer.style.scrollBehavior = 'smooth';
+            
+            sponsorsContainer.classList.add('scrolling-left');
+            setTimeout(() => {
+                sponsorsContainer.classList.remove('scrolling-left');
+            }, 500);
+            
+            sponsorsContainer.scrollTo({
+                left: currentScroll - scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        scrollSponsorsRightBtn.addEventListener('click', () => {
+            const currentScroll = sponsorsContainer.scrollLeft;
+            sponsorsContainer.style.scrollBehavior = 'smooth';
+            
+            sponsorsContainer.classList.add('scrolling-right');
+            setTimeout(() => {
+                sponsorsContainer.classList.remove('scrolling-right');
+            }, 500);
+            
+            sponsorsContainer.scrollTo({
+                left: currentScroll + scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        sponsorsContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = Math.sign(e.deltaY);
+            sponsorsContainer.scrollBy({
+                left: delta * 100,
                 behavior: 'smooth'
             });
         });
