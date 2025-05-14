@@ -43,7 +43,8 @@
       <div class="container mx-auto px-4">
           <div class="flex justify-between items-center py-8">
               <div class="flex items-center space-x-6">
-                  <img src="{{ asset('logo.jpg') }}" alt="EMK Logo" class="h-20 w-auto animate-pulse">
+                  <img src="{{ asset('logo.jpg') }}" alt="EMK Logo"
+                      class="h-20 w-auto animate-pulse rounded-full shadow-lg border-4 border-white object-cover">
                   <div class="md:block hidden">
                       <h1 class="text-4xl font-bold text-white">{{ config('app.name') }}</h1>
                       <p class="text-lg text-blue-200">Cabinet mandataire en mines et carrières</p>

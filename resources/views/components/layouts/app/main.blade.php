@@ -45,6 +45,17 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: top;
         }
+
+        /* Simple fade transitions for carousel */
+        .carousel-slide {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
     </style>
     @stack('styles')
 </head>
