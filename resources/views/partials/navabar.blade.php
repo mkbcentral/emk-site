@@ -190,7 +190,7 @@
                   </div>
                   <div class="flex items-center space-x-2">
                       <i class="fas fa-envelope text-blue-300"></i>
-                      <span class="text-blue-100">contact@emkcabinet.com</span>
+                      <span class="text-blue-100">contact@emkminesoffice.org</span>
                   </div>
                   <div class="flex items-center space-x-4 mt-2">
                       <a href="#" class="text-blue-300 hover:text-white transition-colors duration-300">
@@ -214,7 +214,7 @@
           </div>
           <nav class="container mx-auto px-4 py-3">
               <ul class="space-y-3">
-                  <li><a href="index.html"
+                  <li><a href="/"
                           class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Accueil</a>
                   </li>
                   <li class="py-2">
