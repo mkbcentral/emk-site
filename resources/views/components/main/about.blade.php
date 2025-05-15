@@ -10,7 +10,7 @@
                 <img src="{{ asset('expertises.jpg') }}" alt="Notre équipe" class="rounded-xl shadow-xl w-full">
             </div>
             <div class="md:w-1/2 animate-on-scroll" data-animation="fade-left">
-                <h2 class="text-3xl font-bold text-white mb-6">À propos d'EMK</h2>
+                <h2 class="text-3xl font-bold text-white mb-6">À propos de {{ config('app.name') }}</h2>
                 <p class="text-blue-100 mb-4">
                     En tant qu’acteur important dans le secteur minier, EMK Mines office assure efficacement sur base
                     de son expertise dans le domaine, sa triple mission légale et ce, sur toute l’étendue de la
