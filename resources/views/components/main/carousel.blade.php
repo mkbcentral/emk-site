@@ -16,7 +16,7 @@
                         {{ __('Votre excellent partenaire dans le domaine des mines et des carrières') }}
                     </p>
                     <a href="#about"
-                        class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full shadow-lg transition-all duration-300"
+                        class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-gray-300 font-medium py-2 px-6 rounded-full shadow-lg transition-all duration-300"
                         data-aos="zoom-in-up" data-aos-delay="900" data-aos-duration="1200">
                         {{ __('Voir Plus') }}
                     </a>
@@ -26,12 +26,12 @@
             <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center parallax-bg transition-transform duration-700 ease-in-out"
                 style="background-size: cover; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('s5.jpg')">
                 <div class="w-full px-4 md:px-8">
-                    <div class="max-w-4xl mx-auto text-white">
-                        <div class="text-left max-w-xl ml-0 mt-12 md:mt-24" data-aos="fade-down" data-aos-delay="300">
-                            <h2 class="text-2xl md:text-5xl font-bold mb-4 leading-tight break-words">
+                    <div class="max-w-full mx-auto text-white ">
+                        <div class="text-left max-w-full ml-0 mt-0 md:mt-8" data-aos="fade-down" data-aos-delay="300">
+                            <h2 class="text-2xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight break-words">
                                 La RDC, un pays d’opportunités minières
                             </h2>
-                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200" data-aos="fade-up"
+                            <p class="text-sm md:text-lg mb-6 text-gray-300 delay-200" data-aos="fade-up"
                                 data-aos-delay="600">
                                 Scandale géologique ! La RDC est l’un des plus grands pays de l'Afrique centrale dont
                                 les souterrains renferment une batterie des métaux.
@@ -41,56 +41,53 @@
                 </div>
             </div>
             <!-- Slide 3 -->
-            <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center transition-transform duration-700 ease-in-out"
+            <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center parallax-bg transition-transform duration-700 ease-in-out"
                 style="background-size: cover; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('s4.jpg')">
                 <div class="w-full px-4 md:px-8">
-                    <div class="max-w-2xl mx-auto text-start text-white">
-                        <div class="text-left max-w-xl ml-0 md:ml-10 mt-12 md:mt-24" data-aos="fade-right"
-                            data-aos-delay="300">
-                            <h2 class="text-2xl md:text-6xl font-bold mb-4">
+                    <div class="max-w-full mx-auto text-white">
+                        <div class="text-left max-w-full ml-0 mt-12 md:mt-24" data-aos="fade-down" data-aos-delay="300">
+                            <h2 class="text-2xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight break-words">
                                 La RDC, pays riche en sous-sol
                             </h2>
-                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200" data-aos="fade-up"
+                            <p class="text-sm md:text-lg mb-6 text-gray-300 delay-200" data-aos="fade-up"
                                 data-aos-delay="600">
                                 La RDC possède des gisements riches et variés de plus d'une cinquantaine de minerais,
-                                mais
-                                seulement une douzaine est généralement exploitée.
+                                mais seulement une douzaine est généralement exploitée.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Slide 4 -->
-            <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center transition-transform duration-700 ease-in-out"
+            <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center parallax-bg transition-transform duration-700 ease-in-out"
                 style="background-size: cover; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('expertise.jpg')">
                 <div class="w-full px-4 md:px-8">
-                    <div class="max-w-2xl mx-auto text-start text-white">
-                        <div class="text-left max-w-xl ml-0 md:ml-10 mt-12 md:mt-24" data-aos="fade-right"
-                            data-aos-delay="300">
-                            <h2 class="text-2xl md:text-6xl font-bold mb-4 hero-element">
+                    <div class="max-w-full mx-auto text-white">
+                        <div class="text-left max-w-full ml-0 mt-12 md:mt-24" data-aos="fade-down" data-aos-delay="300">
+                            <h2 class="text-2xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight break-words">
                                 La législation minière
                             </h2>
-                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200" data-aos="fade-up"
+                            <p class="text-sm md:text-lg mb-6 text-gray-300 delay-200" data-aos="fade-up"
                                 data-aos-delay="600">
                                 La législation minière en la matière est la loi n°007/2002 du 11 juillet 2002 portant
-                                code
-                                minier tel que modifié.
+                                code minier tel que modifié.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Slide 5 -->
-            <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center transition-transform duration-700 ease-in-out"
+            <div class="carousel-slide min-w-full h-full bg-cover bg-center flex items-center parallax-bg transition-transform duration-700 ease-in-out"
                 style="background-size: cover; background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(55, 65, 81, 0.6)), url('avocat1.jpg')">
                 <div class="w-full px-4 md:px-8">
-                    <div class="max-w-2xl mx-auto text-start text-white">
-                        <div class="text-left max-w-xl ml-0 md:ml-10 mt-12 md:mt-24">
-                            <h2 class="text-2xl md:text-6xl font-bold mb-4 hero-element" data-aos="fade-right"
-                                data-aos-duration="1000">
+                    <div class="max-w-full mx-auto text-white">
+                        <div class="text-left max-w-full ml-0 mt-12 md:mt-24">
+                            <h2 class="text-2xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight break-words"
+                                data-aos="fade-down" data-aos-delay="300">
                                 Mandataire en mines
                             </h2>
-                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200">
+                            <p class="text-sm md:text-lg mb-6 text-gray-300 delay-200" data-aos="fade-up"
+                                data-aos-delay="600">
                                 « EMK MINES OFFICE » pris par la personne de l’Excellence
                                 Ezéchiel MBWESSE KAMWESSE est
                                 .
