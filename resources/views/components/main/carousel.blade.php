@@ -29,7 +29,7 @@
                     <div class="max-w-full mx-auto text-white ">
                         <div class="text-left max-w-full ml-0 mt-0 md:mt-8" data-aos="fade-down" data-aos-delay="300">
                             <h2 class="text-2xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight break-words">
-                                La RDC, un pays d’opportunités minières
+                                La RDC, un pays<br> d’opportunités minières
                             </h2>
                             <p class="text-sm md:text-lg mb-6 text-gray-300 delay-200" data-aos="fade-up"
                                 data-aos-delay="600">
@@ -47,7 +47,7 @@
                     <div class="max-w-full mx-auto text-white">
                         <div class="text-left max-w-full ml-0 mt-12 md:mt-24" data-aos="fade-down" data-aos-delay="300">
                             <h2 class="text-2xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight break-words">
-                                La RDC, pays riche en sous-sol
+                                La RDC, pays riche <br> en sous-sol
                             </h2>
                             <p class="text-sm md:text-lg mb-6 text-gray-300 delay-200" data-aos="fade-up"
                                 data-aos-delay="600">
