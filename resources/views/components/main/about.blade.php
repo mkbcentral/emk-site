@@ -10,7 +10,7 @@
                 <img src="{{ asset('expertises.jpg') }}" alt="Notre équipe" class="rounded-xl shadow-xl w-full">
             </div>
             <div class="md:w-1/2 animate-on-scroll" data-animation="fade-left">
-                <h2 class="text-3xl font-bold text-white mb-6">À propos de {{ config('app.name') }}</h2>
+                <h2 class="text-3xl font-bold text-white mb-6">À propos d' {{ config('app.name') }}</h2>
                 <p class="text-blue-100 mb-4">
                     En tant qu’acteur important dans le secteur minier, EMK Mines office assure efficacement sur base
                     de son expertise dans le domaine, sa triple mission légale et ce, sur toute l’étendue de la
@@ -20,21 +20,7 @@
                     EMK Mines Office offre la domiciliation aux entreprises tant nationales qu’étrangères conformément
                     aux prescrits de la loi en la matière.
                 </p>
-                <div class="flex space-x-4">
-                    <div class="text-center">
-                        <span class="block text-3xl font-bold text-white">12+</span>
-                        <span class="text-blue-200">Années d'expérience</span>
-                    </div>
-                    <div class="text-center">
-                        <span class="block text-3xl font-bold text-white">150+</span>
-                        <span class="text-blue-200">Clients satisfaits</span>
-                    </div>
-                    <div class="text-center">
-                        <span class="block text-3xl font-bold text-white">30+</span>
-                        <span class="text-blue-200">Experts juridiques</span>
-                    </div>
-                </div>
-                <a href="directeur.html"
+                <a href="/"
                     class="inline-block mt-4 bg-white text-blue-700 px-4 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors duration-300 items-center space-x-2">
                     <span>En savoir plus <i class="fas fa-arrow-right"></i></span>
                 </a>
