@@ -332,35 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateHeroContent() {
             const heroElement = document.querySelector('.hero-section .max-w-2xl');
             if (heroElement) {
-                if (currentSlide === 0) {
-                    heroElement.innerHTML = `
-                        <h2 class="text-4xl md:text-5xl font-bold mb-4 hero-element animate-slide-up">Bienvenue chez EMK</h2>
-                        <p class="text-xl mb-8 hero-element animate-slide-up delay-200">Votre partenaire juridique de confiance dans le secteur minier</p>
-                        <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400">
-                            Nos services
-                        </button>
-                    `;
-                } else if (currentSlide === 1) {
-                    heroElement.innerHTML = `
-                        <div class="text-left max-w-xl ml-10 mt-24">
-                            <h2 class="text-5xl md:text-6xl font-bold mb-4 hero-element animate-slide-up">Expertise Juridique</h2>
-                            <p class="text-xl md:text-2xl mb-8 hero-element animate-slide-up delay-200">Des solutions sur mesure pour tous vos défis juridiques miniers. Notre équipe d'experts vous accompagne dans toutes les étapes de vos projets, de l'exploration à l'exploitation, en passant par la négociation des contrats et la résolution des litiges.</p>
-                            <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400 text-lg">
-                                Découvrir notre expertise
-                            </button>
-                        </div>
-                    `;
-                } else if (currentSlide === 2) {
-                    heroElement.innerHTML = `
-                        <div class="text-left max-w-xl ml-10 mt-24">
-                            <h2 class="text-5xl md:text-6xl font-bold mb-4 hero-element animate-slide-up">Excellence Professionnelle</h2>
-                            <p class="text-xl md:text-2xl mb-8 hero-element animate-slide-up delay-200">Plus de 20 ans d'expérience au service de l'industrie minière. Notre cabinet s'engage à offrir des services juridiques de la plus haute qualité, combinant expertise technique, connaissance approfondie du secteur et approche personnalisée pour chaque client.</p>
-                            <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400 text-lg">
-                                Contactez-nous
-                            </button>
-                        </div>
-                    `;
-                }
+
 
                 // Re-animate hero elements
                 const newHeroElements = heroElement.querySelectorAll('.hero-element');

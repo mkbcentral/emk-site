@@ -6,11 +6,15 @@
     <title>{{ config('app.name') }}</title>
     <link rel="icon" href="{{ asset('logo.jpg') }}" sizes="any">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('main.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
+        body {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        }
+
         .sponsors-wave {
             position: absolute;
             top: 0;

@@ -31,11 +31,10 @@
                             <h2 class="text-2xl md:text-5xl font-bold mb-4 leading-tight break-words">
                                 La RDC, un pays d’opportunités minières
                             </h2>
-                            <p class="text-base md:text-2xl mb-8 delay-200" data-aos="fade-up" data-aos-delay="600">
-                                Scandale géologique ! La RDC est l’un des plus
-                                grands pays de l'Afrique centrale dont les souterrains renferment une batterie des
-                                métaux
-                                .
+                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200" data-aos="fade-up"
+                                data-aos-delay="600">
+                                Scandale géologique ! La RDC est l’un des plus grands pays de l'Afrique centrale dont
+                                les souterrains renferment une batterie des métaux.
                             </p>
                         </div>
                     </div>
@@ -51,7 +50,7 @@
                             <h2 class="text-2xl md:text-6xl font-bold mb-4">
                                 La RDC, pays riche en sous-sol
                             </h2>
-                            <p class="text-base md:text-2xl mb-8 hero-element delay-200" data-aos="fade-up"
+                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200" data-aos="fade-up"
                                 data-aos-delay="600">
                                 La RDC possède des gisements riches et variés de plus d'une cinquantaine de minerais,
                                 mais
@@ -71,7 +70,8 @@
                             <h2 class="text-2xl md:text-6xl font-bold mb-4 hero-element">
                                 La législation minière
                             </h2>
-                            <p class="text-base md:text-2xl mb-8 hero-element" data-aos="fade-up" data-aos-delay="600">
+                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200" data-aos="fade-up"
+                                data-aos-delay="600">
                                 La législation minière en la matière est la loi n°007/2002 du 11 juillet 2002 portant
                                 code
                                 minier tel que modifié.
@@ -90,7 +90,7 @@
                                 data-aos-duration="1000">
                                 Mandataire en mines
                             </h2>
-                            <p class="text-base md:text-2xl mb-8 hero-element">
+                            <p class="text-sm md:text-lg mb-6 text-gray-200 delay-200">
                                 « EMK MINES OFFICE » pris par la personne de l’Excellence
                                 Ezéchiel MBWESSE KAMWESSE est
                                 .
