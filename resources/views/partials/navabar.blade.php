@@ -1,14 +1,14 @@
   <!-- Header avec animation -->
   <header class="bg-transparent text-white  fixed w-full z-50 transition-all duration-300" id="header">
       <div class="bg-white text-gray-800 w-full transition-all duration-300" id="contact-info-section">
-          <div class=" mx-auto px-4">
+          <div class=" ml-4 mx-auto px-4">
               <div class="hidden md:flex justify-between items-center py-2">
                   <div class="flex items-center space-x-8 header-contact-info">
                       <div
                           class="flex items-center space-x-2 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
                           <i class="fa fa-map-marker-alt text-blue-900" aria-hidden="true"></i>
                           <span class="text-gray-700 text-xs md:text-sm">
-                              <span class="font-bold text-black">Cabinet</span> 03,Pièrre MALAGANO, Terminus golf, Lshi,
+                              <span class="font-bold text-black">Cabinet</span> 03,Pièrre Malagano, Terminus golf, Lshi,
                               RDC
                               Fuastin
                           </span>
@@ -16,7 +16,7 @@
                       <div
                           class="flex items-center space-x-2 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
                           <i class="fas fa-phone text-blue-900 text-xs md:text-sm"></i>
-                          <span class="text-gray-700 text-xs md:text-sm">
+                          <span class="text-gray-800 text-xs md:text-sm">
                               <span class="font-bold text-black">Tél </span>
                               +243 12 345 6789
                           </span>
@@ -24,7 +24,7 @@
                       <div
                           class="flex items-center space-x-2 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
                           <i class="fas fa-envelope text-blue-900 text-xs md:text-sm"></i>
-                          <span class="text-gray-700 text-xs md:text-sm">
+                          <span class="text-gray-800 text-xs md:text-sm">
                               <span class="font-bold text-black">Email </span>
                               contact@emkminesoffice.org
                           </span>
@@ -32,20 +32,20 @@
                   </div>
                   <div class="flex items-center space-x-5">
                       <a href="#"
-                          class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs md:text-sm">
+                          class="text-gray-800 hover:text-blue-600 transition-colors duration-300 text-xs md:text-sm">
                           <i class="fab fa-facebook-f"></i>
                       </a>
                       <a href="#"
-                          class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs md:text-sm">
+                          class="text-gray-800 hover:text-blue-600 transition-colors duration-300 text-xs md:text-sm">
                           <i class="fab fa-linkedin-in"></i>
                       </a>
                       <a href="#"
-                          class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs md:text-sm">
+                          class="text-gray-800 hover:text-blue-600 transition-colors duration-300 text-xs md:text-sm">
                           <i class="fab fa-twitter"></i>
                       </a>
                       <div class="flex items-center space-x-2 ml-5 border-l border-gray-300 pl-5">
                           <a href="#"
-                              class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs">FR</a>
+                              class="text-gray-800 hover:text-blue-600 transition-colors duration-300 text-xs">FR</a>
                           <span class="text-gray-400">|</span>
                           <a href="#"
                               class="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-xs">EN</a>

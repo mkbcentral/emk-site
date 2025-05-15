@@ -75,7 +75,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     @include('partials.footer')
-    <script src="{{ asset('my-script.js') }}"></script>
+    <script src="{{ asset('my-script-1.js') }}"></script>
 
     <!-- AOS JS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
