@@ -77,7 +77,7 @@
                           <li class="relative group">
                               <a href="#"
                                   class="text-blue-100 hover:text-white transition-colors duration-300 font-medium text-md flex items-center nav-link">
-                                  Présentation
+                                  Notre cabinet
                                   <i
                                       class="fas fa-chevron-down ml-2 text-sm group-hover:rotate-180 transition-transform duration-300"></i>
                               </a>
@@ -92,13 +92,7 @@
                                   <li>
                                       <a href="{{ route('ceo') }}"
                                           class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
-                                          Directeur Général
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="directeur.html"
-                                          class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 border-b border-gray-200">
-                                          Réalisation
+                                          Mendataire en mines
                                       </a>
                                   </li>
                               </ul>
@@ -234,37 +228,20 @@
                   <li class="py-2">
                       <div class="flex items-center justify-between text-blue-100 hover:text-white"
                           id="mobile-services-toggle">
-                          <span>Services</span>
+                          <span>Notre cabinet</span>
                           <i class="fas fa-chevron-down transition-transform duration-300"></i>
                       </div>
                       <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-services-menu">
-                          <li><a href="conseil-juridique.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Conseil
-                                  juridique</a></li>
-                          <li class="py-2 border-b border-blue-700">
-                              <div class="flex items-center justify-between text-blue-100 hover:text-white"
-                                  id="mobile-conformite-toggle">
-                                  <span>Conformité réglementaire</span>
-                                  <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                              </div>
-                              <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-conformite-menu">
-                                  <li><a href="standards.html"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Standards
-                                          internationaux</a></li>
-                                  <li><a href="legislation.html"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Législation
-                                          locale</a></li>
-                                  <li><a href="audits.html"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Audits
-                                          de conformité</a></li>
-                              </ul>
+                          <li><a href="{{ route('historique') }}"
+                                  class="block py-2 text-blue-100 hover:text-white transition-colors
+                                   duration-300 border-b border-blue-700 pb-2">
+                                  Historique</a>
                           </li>
-                          <li><a href="negociation.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Négociation
-                                  de contrats</a></li>
-                          <li><a href="litiges.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Litiges
-                                  miniers</a></li>
+                          <li><a href="{{ route('ceo') }}"
+                                  class="block py-2 text-blue-100 hover:text-white transition-colors 
+                                  duration-300 border-b border-blue-700 pb-2">
+                                  Mendataire en mines</a></li>
+
                       </ul>
                   </li>
                   <li class="py-2">
@@ -274,25 +251,31 @@
                           <i class="fas fa-chevron-down transition-transform duration-300"></i>
                       </div>
                       <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-expertise-menu">
-                          <li><a href="droit-minier.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Droit
-                                  minier</a></li>
+                          <li>
+                              <a href="#"
+                                  class="block py-2 text-blue-100 hover:text-white transition-colors 
+                                  duration-300 border-b border-blue-700 pb-2">Législation
+                              </a>
+                          </li>
                           <li class="py-2 border-b border-blue-700">
                               <div class="flex items-center justify-between text-blue-100 hover:text-white"
                                   id="mobile-contrats-toggle">
-                                  <span>Contrats miniers</span>
+                                  <span>Traitement des dossiers</span>
                                   <i class="fas fa-chevron-down transition-transform duration-300"></i>
                               </div>
                               <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-contrats-menu">
-                                  <li><a href="contrats-exploration.html"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Contrats
-                                          d'exploration</a></li>
-                                  <li><a href="contrats-exploitation.html"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Contrats
-                                          d'exploitation</a></li>
-                                  <li><a href="partenariats.html"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Partenariats
-                                          miniers</a></li>
+                                  <li><a href="#"
+                                          class="block py-2 text-blue-100 hover:text-white transition-colors 
+                                          duration-300 border-b border-blue-700 pb-2">Consultation</a>
+                                  </li>
+                                  <li><a href="#"
+                                          class="block py-2 text-blue-100 hover:text-white
+                                           transition-colors duration-300 border-b border-blue-700 pb-2">Ouverture
+                                          dossier</a></li>
+                                  <li><a href="#"
+                                          class="block py-2 text-blue-100 hover:text-white 
+                                          transition-colors duration-300">Ouverture
+                                          dossier</a></li>
                               </ul>
                           </li>
                           <li><a href="litiges-miniers.html"
@@ -303,28 +286,10 @@
                                   ESG</a></li>
                       </ul>
                   </li>
-                  <li class="py-2">
-                      <div class="flex items-center justify-between text-blue-100 hover:text-white"
-                          id="mobile-presentation-toggle">
-                          <span>Présentation</span>
-                          <i class="fas fa-chevron-down transition-transform duration-300"></i>
-                      </div>
-                      <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-presentation-menu">
-                          <li><a href="directeur.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Directeur
-                                  Général</a></li>
-                          <li><a href="historique.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Historique</a>
-                          </li>
-                          <li><a href="galerie.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300 border-b border-blue-700 pb-2">Galerie</a>
-                          </li>
-                          <li><a href="sponsors.html"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Nos
-                                  Sponsors</a></li>
-                      </ul>
+                  <li><a href="{{ route('galerie') }}"
+                          class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Galerie</a>
                   </li>
-                  <li><a href="contact.html"
+                  <li><a href="{{ route('contact') }}"
                           class="block py-2 text-blue-100 hover:text-white transition-colors duration-300">Contact</a>
                   </li>
               </ul>

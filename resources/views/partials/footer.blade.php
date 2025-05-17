@@ -70,7 +70,7 @@
                     </p>
                     <p class="flex items-center text-gray-400">
                         <i class="fas fa-envelope w-5 mr-2 text-blue-500"></i>
-                        emkminesoffice.rdc@gmail.com
+                        contact@emkminesoffice.org
                     </p>
                     <a href="index.html#contact"
                         class=" mt-4 bg-blue-700 text-white px-4 py-2
@@ -96,6 +96,9 @@
                     <i class="fab fa-twitter"></i>
                 </a>
             </div>
+        </div>
+        <div class="mt-4 text-center text-xs text-gray-500">
+            By <a href="https://mkbcentral.com/" target="_blank" class="underline hover:text-white">Ben MWILA</a>
         </div>
     </div>
 </footer>

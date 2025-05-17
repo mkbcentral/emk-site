@@ -4,7 +4,7 @@
         <div class="container mx-auto px-4 py-16">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Mr. EZECHIEL MBWESSE KAMWESSE</h1>
-                <p class="text-xl text-blue-100 mb-8">Directeur Général & Fondateur</p>
+                <p class="text-xl text-blue-100 mb-8">Mandataire en mines</p>
             </div>
         </div>
         <div class="wave-divider h-20 bg-bottom bg-no-repeat bg-cover"
@@ -22,12 +22,6 @@
                             <div class="absolute inset-0 bg-blue-100 rounded-xl transform rotate-6"></div>
                             <img src="{{ asset('avocat1.jpg') }}" alt="Me. Emmanuel Mukendi Kabeya"
                                 class="relative rounded-xl shadow-lg w-full object-cover h-[600px]">
-                            <div class="absolute -bottom-6 -right-6 bg-blue-700 text-white p-4 rounded-xl shadow-lg">
-                                <div class="text-center">
-                                    <p class="font-bold text-xl">20+</p>
-                                    <p class="text-sm">ans d'expérience</p>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="mt-12 space-y-6">
@@ -39,7 +33,7 @@
                                             class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
                                             <i class="fas fa-envelope"></i>
                                         </div>
-                                        <span class="text-gray-700">e.ezechiel@emkcabinet.com</span>
+                                        <span class="text-gray-700">e.ezechiel@emkminesoffice.org</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
                                         <div
@@ -55,45 +49,6 @@
                                         </div>
                                         <a href="#"
                                             class="text-blue-700 hover:text-blue-900">linkedin.com/in/emmanuelmukendi</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-white p-6 rounded-xl shadow-md">
-                                <h3 class="text-xl font-semibold text-blue-900 mb-4">Langues</h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <div class="flex justify-between mb-1">
-                                            <span class="text-gray-700">Français</span>
-                                            <span class="text-gray-500">Courant</span>
-                                        </div>
-                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                            <div class="bg-blue-700 h-2 rounded-full" style="width: 100%"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-
-                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                            <div class="bg-blue-700 h-2 rounded-full" style="width: 90%"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="flex justify-between mb-1">
-                                            <span class="text-gray-700">Lingala</span>
-                                            <span class="text-gray-500">Courant</span>
-                                        </div>
-                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                            <div class="bg-blue-700 h-2 rounded-full" style="width: 95%"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="flex justify-between mb-1">
-                                            <span class="text-gray-700">Swahili</span>
-                                            <span class="text-gray-500">Natif</span>
-                                        </div>
-                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                            <div class="bg-blue-700 h-2 rounded-full" style="width: 75%"></div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -125,104 +80,13 @@
 
                             </div>
                         </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                            <div class="bg-white rounded-xl shadow-md p-6">
-                                <h3 class="text-xl font-semibold text-blue-900 mb-4">Formation académique</h3>
-                                <ul class="space-y-4">
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Doctorat en Droit des Affaires</p>
-                                            <p class="text-gray-600">Université de Paris-Sorbonne, France (2001-2004)
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Certificat en Droit Minier International</p>
-                                            <p class="text-gray-600">Université McGill, Canada (2002)</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Master en Droit</p>
-                                            <p class="text-gray-600">Université de Kinshasa, RDC (1995-1997)</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Licence en Droit</p>
-                                            <p class="text-gray-600">Université de Kinshasa, RDC (1991-1995)</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white rounded-xl shadow-md p-6">
-                                <h3 class="text-xl font-semibold text-blue-900 mb-4">Parcours professionnel</h3>
-                                <ul class="space-y-4">
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Directeur Général & Fondateur</p>
-                                            <p class="text-gray-600">EMK Cabinet Juridique de Suivi Minier
-                                                (2010-présent)</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Conseiller Juridique Principal</p>
-                                            <p class="text-gray-600">Mining Corp International (2005-2010)</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Consultant Juridique</p>
-                                            <p class="text-gray-600">Ministère des Mines, RDC (2004-2005)</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex">
-                                        <div class="mr-4 flex-shrink-0">
-                                            <div class="w-3 h-3 bg-blue-700 rounded-full mt-2"></div>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">Avocat</p>
-                                            <p class="text-gray-600">Cabinet Martin & Associés, Kinshasa (2000-2004)
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- CTA Section -->
                 <div class="text-center mt-4">
-                    <h2 class="text-2xl font-bold text-blue-900 mb-4">Vous souhaitez consulter Me. Mukendi?</h2>
-                    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Prenez rendez-vous pour une consultation
-                        personnalisée avec notre Directeur Général et bénéficiez de son expertise inégalée en droit
-                        minier.</p>
-                    <a href="contact.html"
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Mr. EZECHIEL MBWESSE KAMWESSE</h1>
+                    <h2 class="text-2xl font-bold text-blue-900 mb-4">Vous souhaitez consulter </h2>
+                    <a href="{{ route('contact') }}"
                         class="inline-block bg-blue-700 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-800 transition-colors duration-300 shadow-lg">
                         Contactez-nous pour une consultation
                     </a>

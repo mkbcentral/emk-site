@@ -27,8 +27,7 @@
                                 <i class="fas fa-map-marker-alt mt-1 text-blue-300 text-xl"></i>
                                 <div>
                                     <h4 class="font-medium text-lg">Adresse</h4>
-                                    <p class="text-blue-100">123 Avenue Minière, Kinshasa,<br>République Démocratique du
-                                        Congo</p>
+                                    <p class="text-blue-100">03,Pièrre Malagano, Terminus golf, Lshi, RDC Fuastin</p>
                                 </div>
                             </div>
                             <div
@@ -37,7 +36,6 @@
                                 <div>
                                     <h4 class="font-medium text-lg">Téléphone</h4>
                                     <p class="text-blue-100">+243 12 345 6789</p>
-                                    <p class="text-blue-100">+243 98 765 4321</p>
                                 </div>
                             </div>
                             <div
@@ -45,8 +43,7 @@
                                 <i class="fas fa-envelope mt-1 text-blue-300 text-xl"></i>
                                 <div>
                                     <h4 class="font-medium text-lg">Email</h4>
-                                    <p class="text-blue-100">contact@emkcabinet.com</p>
-                                    <p class="text-blue-100">info@emkcabinet.com</p>
+                                    <p class="text-blue-100">contact@emkminesoffice.org</p>
                                 </div>
                             </div>
                             <div
@@ -55,7 +52,7 @@
                                 <div>
                                     <h4 class="font-medium text-lg">Heures d'ouverture</h4>
                                     <p class="text-blue-100">Lundi - Vendredi: 8h00 - 17h00</p>
-                                    <p class="text-blue-100">Samedi: 9h00 - 12h00</p>
+
                                 </div>
                             </div>
                         </div>

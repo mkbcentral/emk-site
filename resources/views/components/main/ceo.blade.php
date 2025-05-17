@@ -12,7 +12,7 @@
               <div class="lg:w-2/3 animate-on-scroll bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-md"
                   data-animation="fade-left">
                   <h2 class="text-3xl font-bold text-blue-900 mb-3">Mr. Ezéchiel MBWESSE KAMWESSE</h2>
-                  <p class="text-xl text-blue-700 font-medium mb-6">Directeur Général & Fondateur</p>
+                  <p class="text-xl text-blue-700 font-medium mb-6">Mandataire en mines</p>
                   <p class="text-gray-600 mb-4">
 
                       De nationalité congolaise, économiste chevronné, doté des compétences et connaissances avérées en
@@ -22,7 +22,7 @@
                       31/01/2024 avec un Avis Technique
                       favorable N°22.../354/DM/EKK/2023 du 11 /12/2023..</p>
 
-                  <a href="directeur.html"
+                  <a href="{{ route('ceo') }}"
                       class="inline-block mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors duration-300 items-center space-x-2">
                       <span>En savoir plus <i class="fas fa-arrow-right"></i></span>
 

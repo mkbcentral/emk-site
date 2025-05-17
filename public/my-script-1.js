@@ -236,93 +236,86 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let currentSlide = 0;
         const slideCount = slides.length;
+        let autoplayInterval;
+
+        // Helper: animate text in slide
+        function animateSlideText(slide) {
+            const textElements = slide.querySelectorAll('.hero-element, .carousel-title, .carousel-caption');
+            textElements.forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'none';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)';
+                    el.style.transitionDelay = `${i * 0.08 + 0.2}s`;
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 60);
+            });
+        }
 
         // Update carousel with PowerPoint-style transitions
         function updateCarousel(direction = 'next') {
-            // Get transition effect to use (cycling through available effects)
-            const effect = 'fade'; // Force fade effect for all slides
-
+            const effect = 'fade';
             const nextIndex = direction === 'next'
                 ? (currentSlide + 1) % slideCount
                 : (currentSlide - 1 + slideCount) % slideCount;
 
-            // Apply appropriate transition classes based on direction and effect
             if (direction === 'next') {
-                // Apply exit animation to current slide
                 slides[currentSlide].classList.add('fade-out');
-
-                // Prepare the next slide to come in
                 slides[nextIndex].style.opacity = '0';
                 slides[nextIndex].style.display = 'flex';
 
-                // Update current slide after animation completes
                 setTimeout(() => {
                     slides[currentSlide].style.display = 'none';
                     slides[currentSlide].classList.remove('fade-out');
-
                     currentSlide = nextIndex;
-
-                    // Apply entrance animation to new slide
                     slides[currentSlide].classList.add('fade-in');
                     slides[currentSlide].style.opacity = '1';
 
-                    // Add parallax effect to active slide
+                    // Parallax effect
                     slides.forEach((slide, index) => {
                         const bgImage = slide.querySelector('.parallax-bg');
                         if (bgImage) {
-                            if (index === currentSlide) {
-                                bgImage.style.transform = 'scale(1.1)';
-                            } else {
-                                bgImage.style.transform = 'scale(1.0)';
-                            }
+                            bgImage.style.transform = index === currentSlide ? 'scale(1.1)' : 'scale(1.0)';
                         }
                     });
 
-                    // Remove entrance classes after animation completes
+                    // Animate text in new slide
+                    animateSlideText(slides[currentSlide]);
+
                     setTimeout(() => {
                         slides[currentSlide].classList.remove('fade-in');
                     }, 700);
 
-                    // Update hero content based on slide index
                     updateHeroContent();
                 }, 700);
             } else {
-                // Apply exit animation to current slide for previous direction
                 slides[currentSlide].classList.add('fade-out');
-
-                // Prepare the previous slide to come in
                 slides[nextIndex].style.opacity = '0';
                 slides[nextIndex].style.display = 'flex';
 
-                // Update current slide after animation completes
                 setTimeout(() => {
                     slides[currentSlide].style.display = 'none';
                     slides[currentSlide].classList.remove('fade-out');
-
                     currentSlide = nextIndex;
-
-                    // Apply entrance animation to new slide
                     slides[currentSlide].classList.add('fade-in');
                     slides[currentSlide].style.opacity = '1';
 
-                    // Add parallax effect to active slide
                     slides.forEach((slide, index) => {
                         const bgImage = slide.querySelector('.parallax-bg');
                         if (bgImage) {
-                            if (index === currentSlide) {
-                                bgImage.style.transform = 'scale(1.1)';
-                            } else {
-                                bgImage.style.transform = 'scale(1.0)';
-                            }
+                            bgImage.style.transform = index === currentSlide ? 'scale(1.1)' : 'scale(1.0)';
                         }
                     });
 
-                    // Remove entrance classes after animation completes
+                    // Animate text in new slide
+                    animateSlideText(slides[currentSlide]);
+
                     setTimeout(() => {
                         slides[currentSlide].classList.remove('fade-in');
                     }, 700);
 
-                    // Update hero content based on slide index
                     updateHeroContent();
                 }, 700);
             }
@@ -332,9 +325,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateHeroContent() {
             const heroElement = document.querySelector('.hero-section .max-w-2xl');
             if (heroElement) {
-
-
-                // Re-animate hero elements
                 const newHeroElements = heroElement.querySelectorAll('.hero-element');
                 newHeroElements.forEach((el, i) => {
                     el.style.opacity = '0';
@@ -351,40 +341,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Go to specific slide
         function goToSlide(index) {
-            // Avoid infinite recursion
             if (index === currentSlide) return;
-
-            // Determine direction
             const direction = (index > currentSlide) ? 'next' : 'prev';
 
-            // Add transition effect to elements in current slide
+            // Animate out text in current slide
             if (slides[currentSlide]) {
-                const elements = slides[currentSlide].querySelectorAll('.hero-element');
+                const elements = slides[currentSlide].querySelectorAll('.hero-element, .carousel-title, .carousel-caption');
                 elements.forEach(el => {
+                    el.style.transition = 'opacity 0.3s, transform 0.3s';
                     el.style.opacity = '0';
-                    el.style.transform = 'translateY(20px)';
+                    el.style.transform = 'translateY(30px)';
                 });
             }
 
-            // Setup next slide
-            const nextSlide = index;
-
-            // Use updateCarousel with the direction
             updateCarousel(direction);
-
             restartAutoplay();
         }
 
         // Event listeners for controls
         if (prevButton) {
             prevButton.addEventListener('click', () => {
-                goToSlide(currentSlide - 1);
+                goToSlide((currentSlide - 1 + slideCount) % slideCount);
             });
         }
 
         if (nextButton) {
             nextButton.addEventListener('click', () => {
-                goToSlide(currentSlide + 1);
+                goToSlide((currentSlide + 1) % slideCount);
             });
         }
 
@@ -401,12 +384,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (slides[currentSlide]) {
                 const slide = slides[currentSlide];
                 const bgImage = slide.querySelector('.parallax-bg');
-
                 if (bgImage) {
                     const { left, top, width, height } = carousel.getBoundingClientRect();
                     const x = (e.clientX - left) / width - 0.5;
                     const y = (e.clientY - top) / height - 0.5;
-
                     bgImage.style.transform = `scale(1.1) translate(${x * 20}px, ${y * 20}px)`;
                 }
             }
@@ -424,8 +405,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Autoplay functionality
         function startAutoplay() {
             autoplayInterval = setInterval(() => {
-                goToSlide(currentSlide + 1);
-            }, 6000);
+                goToSlide((currentSlide + 1) % slideCount);
+            }, 10000);
         }
 
         function restartAutoplay() {
@@ -435,17 +416,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize the carousel
         function initCarousel() {
-            // Initialize the first slide
             slides[0].style.opacity = '1';
             slides[0].style.display = 'flex';
             slides[0].classList.add('active');
-
-            // Initialize non-active slides
             for (let i = 1; i < slides.length; i++) {
                 slides[i].style.opacity = '0';
                 slides[i].style.display = 'none';
             }
-
+            // Animate text in first slide
+            animateSlideText(slides[0]);
             startAutoplay();
         }
 

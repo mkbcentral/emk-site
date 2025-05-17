@@ -1,9 +1,5 @@
 <section id="about" class="py-20 relative overflow-hidden"
     style="background: linear-gradient(135deg, #0a2342 0%, #102542 100%); color: #fff;">
-    <!-- Cercles décoratifs (moins clairs) -->
-    <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500 opacity-20 rounded-full z-0"></div>
-    <div class="absolute bottom-10 right-20 w-24 h-24 bg-yellow-400 opacity-30 rounded-full z-0"></div>
-
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 animate-on-scroll" data-animation="fade-right">
