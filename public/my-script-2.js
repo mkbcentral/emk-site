@@ -1,99 +1,108 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Scroll Progress Indicator
     const scrollProgress = document.getElementById('scroll-progress');
-
+    
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercentage = (scrollTop / scrollHeight) * 100;
-
+        
         scrollProgress.style.width = scrollPercentage + '%';
     });
 
+    
     // Header animation on scroll
     const header = document.getElementById('header');
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-
+        
         if (currentScrollY > 100) {
             header.classList.add('scrolled');
-            header.classList.add('bg-white', 'shadow-lg');
+            header.classList.add('bg-white', 'shadow-lg'); 
             header.classList.remove('bg-transparent', 'bg-blue-900');
             header.style.transform = 'translateY(0)';
             header.style.transition = 'transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease';
-
+            
             // Hide entire contact information section when scrolling
             const contactInfoSection = document.getElementById('contact-info-section');
-            if (contactInfoSection) {
+            if (contactInfoSection && currentScrollY > 100) {
                 contactInfoSection.style.transition = 'all 0.3s ease-in-out';
                 contactInfoSection.style.opacity = '0';
                 contactInfoSection.style.transform = 'translateY(-20px)';
                 setTimeout(() => {
                     contactInfoSection.classList.add('hidden');
                 }, 300);
-            }
-
+            } 
+            
             // Change text color to match the white background
             header.querySelectorAll('.text-gray-700, .text-blue-100, .text-white, .text-blue-200, .text-blue-300').forEach(el => {
-                el.classList.add('text-gray-800');
+                el.style.transition = 'color 0.3s ease';
+                el.classList.add('text-gray-800');  
                 el.classList.remove('text-gray-700', 'text-blue-100', 'text-white', 'text-blue-200', 'text-blue-300');
             });
 
             // Apply enhanced hover effect to nav links when header is scrolled
             const navLinks = header.querySelectorAll('nav a');
             navLinks.forEach(link => {
+                link.style.transition = 'all 0.3s ease';
                 link.classList.add('scrolled-nav-link');
-                link.classList.add('text-sm');
-                link.classList.remove('text-lg');
+                link.classList.add('text-sm');  
+                link.classList.remove('text-lg');  
             });
-
-            // Make header smaller when scrolled
+            
+            // Make header smaller when scrolled with smooth transition
             header.querySelectorAll('.py-8').forEach(el => {
+                el.style.transition = 'padding 0.4s ease';
                 el.classList.remove('py-8');
-                el.classList.add('py-4');
+                el.classList.add('py-4');  
             });
-
+            
             header.querySelectorAll('.h-20').forEach(el => {
+                el.style.transition = 'height 0.4s ease';
                 el.classList.remove('h-20');
-                el.classList.add('h-12');
+                el.classList.add('h-12');  
             });
-
-            // Reduce text size for company name
+            
+            // Reduce text size for company name with transition
             header.querySelectorAll('.text-4xl').forEach(el => {
+                el.style.transition = 'font-size 0.4s ease';
                 el.classList.remove('text-4xl');
                 el.classList.add('text-2xl');
             });
-
+            
             header.querySelectorAll('.text-lg:not(nav a)').forEach(el => {
+                el.style.transition = 'font-size 0.4s ease';
                 el.classList.remove('text-lg');
                 el.classList.add('text-base');
             });
-
-            if (currentScrollY > lastScrollY) {
-                // Scrolling down - keep header visible
-                header.style.transform = 'translateY(0)';
-            } else {
-                // Scrolling up
-                header.style.transform = 'translateY(0)';
-            }
         } else {
-            header.classList.remove('scrolled', 'bg-white', 'shadow-lg');
+            header.classList.remove('scrolled', 'bg-white', 'shadow-lg'); 
             header.classList.add('bg-transparent');
             header.style.transform = 'translateY(0)';
             header.style.transition = 'transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease';
-
-            // Show entire contact information section when at the top
+            
+            // Affiche la section contact-info uniquement quand on scroll vers le haut, la cache quand on scroll vers le bas
             const contactInfoSection = document.getElementById('contact-info-section');
             if (contactInfoSection) {
-                contactInfoSection.classList.remove('hidden');
-                setTimeout(() => {
+                if (currentScrollY < lastScrollY) {
+                    // Scroll vers le haut : afficher la section
+                    contactInfoSection.classList.remove('hidden');
+                    contactInfoSection.style.transition = 'all 0.3s ease-in-out';
                     contactInfoSection.style.opacity = '1';
                     contactInfoSection.style.transform = 'translateY(0)';
-                }, 50);
+                } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    // Scroll vers le bas : cacher la section
+                    contactInfoSection.style.transition = 'all 0.3s ease-in-out';
+                    contactInfoSection.style.opacity = '0';
+                    contactInfoSection.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        contactInfoSection.classList.add('hidden');
+                    }, 300);
+                }
             }
-
+            
             // Restore original text colors
             header.querySelectorAll('.text-gray-800').forEach(el => {
                 if (el.tagName === 'A' && !el.closest('#contact-info-section')) {
@@ -111,28 +120,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 el.classList.remove('text-gray-800');
             });
-
+            
             // Remove enhanced hover effect from nav links when header is not scrolled
             const navLinks = header.querySelectorAll('nav a');
             navLinks.forEach(link => {
                 link.classList.remove('scrolled-nav-link', 'text-sm');
                 link.classList.add('text-lg');
             });
-
+            
             // Restore header size
             header.querySelectorAll('.py-4').forEach(el => {
                 el.classList.remove('py-4');
                 el.classList.add('py-8');
             });
-
+            
             header.querySelectorAll('.h-12').forEach(el => {
                 el.classList.remove('h-12');
                 el.classList.add('h-20');
             });
-
+            
             header.style.transform = 'translateY(0)';
         }
-
+        
+        // Add additional check specifically for scrolling up direction to show contact info
+        if (currentScrollY < lastScrollY && currentScrollY < 100) {
+            const contactInfoSection = document.getElementById('contact-info-section');
+            if (contactInfoSection && contactInfoSection.classList.contains('hidden')) {
+                contactInfoSection.classList.remove('hidden');
+                setTimeout(() => {
+                    contactInfoSection.style.opacity = '1';
+                    contactInfoSection.style.transform = 'translateY(0)';
+                }, 50);
+            }
+        }
+        
         lastScrollY = currentScrollY;
     });
 
@@ -233,91 +254,60 @@ document.addEventListener('DOMContentLoaded', function() {
         const indicators = Array.from(document.querySelectorAll('#carousel-indicators button'));
         const prevButton = document.getElementById('prev-slide');
         const nextButton = document.getElementById('next-slide');
-
+        
         let currentSlide = 0;
         const slideCount = slides.length;
+        let isTransitioning = false;
         let autoplayInterval;
 
-        // Helper: animate text in slide
-        function animateSlideText(slide) {
-            const textElements = slide.querySelectorAll('.hero-element, .carousel-title, .carousel-caption');
-            textElements.forEach((el, i) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'none';
-                setTimeout(() => {
-                    el.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)';
-                    el.style.transitionDelay = `${i * 0.08 + 0.2}s`;
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 60);
-            });
+        // Fade transition: next slide is visible under current, so no blank
+        function goToSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            isTransitioning = true;
+
+            const prev = currentSlide;
+            const next = (index + slideCount) % slideCount;
+
+            // Prepare next slide: visible and under current
+            slides[next].style.display = 'flex';
+            slides[next].style.opacity = '0';
+            slides[next].style.zIndex = '1';
+            slides[prev].style.zIndex = '2';
+
+            // Diminuer l'opacité du fond blanc juste après le prochain slide
+            const nextBg = slides[next].querySelector('.parallax-bg, .slide-bg, .bg-white');
+            if (nextBg) {
+                nextBg.style.transition = 'opacity 0.8s cubic-bezier(0.4,0,0.2,1)';
+                nextBg.style.opacity = '0.7';
+            }
+
+            // Fade in next slide while fading out current
+            slides[next].style.transition = 'opacity 0.8s cubic-bezier(0.4,0,0.2,1)';
+            slides[prev].style.transition = 'opacity 0.8s cubic-bezier(0.4,0,0.2,1)';
+            setTimeout(() => {
+                slides[next].style.opacity = '1';
+                slides[prev].style.opacity = '0';
+            }, 20);
+
+            // After fade, hide previous slide
+            setTimeout(() => {
+                slides[prev].style.display = 'none';
+                slides[prev].style.zIndex = '';
+                slides[next].style.zIndex = '';
+                currentSlide = next;
+                updateIndicators();
+                updateHeroContent();
+                isTransitioning = false;
+            }, 800);
+
+            restartAutoplay();
         }
 
-        // Update carousel with PowerPoint-style transitions
-        function updateCarousel(direction = 'next') {
-            const effect = 'fade';
-            const nextIndex = direction === 'next'
-                ? (currentSlide + 1) % slideCount
-                : (currentSlide - 1 + slideCount) % slideCount;
-
-            if (direction === 'next') {
-                slides[currentSlide].classList.add('fade-out');
-                slides[nextIndex].style.opacity = '0';
-                slides[nextIndex].style.display = 'flex';
-
-                setTimeout(() => {
-                    slides[currentSlide].style.display = 'none';
-                    slides[currentSlide].classList.remove('fade-out');
-                    currentSlide = nextIndex;
-                    slides[currentSlide].classList.add('fade-in');
-                    slides[currentSlide].style.opacity = '1';
-
-                    // Parallax effect
-                    slides.forEach((slide, index) => {
-                        const bgImage = slide.querySelector('.parallax-bg');
-                        if (bgImage) {
-                            bgImage.style.transform = index === currentSlide ? 'scale(1.1)' : 'scale(1.0)';
-                        }
-                    });
-
-                    // Animate text in new slide
-                    animateSlideText(slides[currentSlide]);
-
-                    setTimeout(() => {
-                        slides[currentSlide].classList.remove('fade-in');
-                    }, 700);
-
-                    updateHeroContent();
-                }, 700);
-            } else {
-                slides[currentSlide].classList.add('fade-out');
-                slides[nextIndex].style.opacity = '0';
-                slides[nextIndex].style.display = 'flex';
-
-                setTimeout(() => {
-                    slides[currentSlide].style.display = 'none';
-                    slides[currentSlide].classList.remove('fade-out');
-                    currentSlide = nextIndex;
-                    slides[currentSlide].classList.add('fade-in');
-                    slides[currentSlide].style.opacity = '1';
-
-                    slides.forEach((slide, index) => {
-                        const bgImage = slide.querySelector('.parallax-bg');
-                        if (bgImage) {
-                            bgImage.style.transform = index === currentSlide ? 'scale(1.1)' : 'scale(1.0)';
-                        }
-                    });
-
-                    // Animate text in new slide
-                    animateSlideText(slides[currentSlide]);
-
-                    setTimeout(() => {
-                        slides[currentSlide].classList.remove('fade-in');
-                    }, 700);
-
-                    updateHeroContent();
-                }, 700);
+        function updateIndicators() {
+            if (indicators.length > 0) {
+                indicators.forEach((btn, i) => {
+                    btn.classList.toggle('active', i === currentSlide);
+                });
             }
         }
 
@@ -325,6 +315,36 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateHeroContent() {
             const heroElement = document.querySelector('.hero-section .max-w-2xl');
             if (heroElement) {
+                if (currentSlide === 0) {
+                    heroElement.innerHTML = `
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4 hero-element animate-slide-up">Bienvenue chez EMK</h2>
+                        <p class="text-xl mb-8 hero-element animate-slide-up delay-200">Votre partenaire juridique de confiance dans le secteur minier</p>
+                        <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400">
+                            Nos services
+                        </button>
+                    `;
+                } else if (currentSlide === 1) {
+                    heroElement.innerHTML = `
+                        <div class="text-left max-w-xl ml-10 mt-24">
+                            <h2 class="text-5xl md:text-6xl font-bold mb-4 hero-element animate-slide-up">Expertise Juridique</h2>
+                            <p class="text-xl md:text-2xl mb-8 hero-element animate-slide-up delay-200">Des solutions sur mesure pour tous vos défis juridiques miniers. Notre équipe d'experts vous accompagne dans toutes les étapes de vos projets, de l'exploration à l'exploitation, en passant par la négociation des contrats et la résolution des litiges.</p>
+                            <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400 text-lg">
+                                Découvrir notre expertise
+                            </button>
+                        </div>
+                    `;
+                } else if (currentSlide === 2) {
+                    heroElement.innerHTML = `
+                        <div class="text-left max-w-xl ml-10 mt-24">
+                            <h2 class="text-5xl md:text-6xl font-bold mb-4 hero-element animate-slide-up">Excellence Professionnelle</h2>
+                            <p class="text-xl md:text-2xl mb-8 hero-element animate-slide-up delay-200">Plus de 20 ans d'expérience au service de l'industrie minière. Notre cabinet s'engage à offrir des services juridiques de la plus haute qualité, combinant expertise technique, connaissance approfondie du secteur et approche personnalisée pour chaque client.</p>
+                            <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition-colors duration-300 hero-element animate-zoom-in delay-400 text-lg">
+                                Contactez-nous
+                            </button>
+                        </div>
+                    `;
+                }
+                // Re-animate hero elements
                 const newHeroElements = heroElement.querySelectorAll('.hero-element');
                 newHeroElements.forEach((el, i) => {
                     el.style.opacity = '0';
@@ -339,35 +359,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Go to specific slide
-        function goToSlide(index) {
-            if (index === currentSlide) return;
-            const direction = (index > currentSlide) ? 'next' : 'prev';
-
-            // Animate out text in current slide
-            if (slides[currentSlide]) {
-                const elements = slides[currentSlide].querySelectorAll('.hero-element, .carousel-title, .carousel-caption');
-                elements.forEach(el => {
-                    el.style.transition = 'opacity 0.3s, transform 0.3s';
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(30px)';
-                });
-            }
-
-            updateCarousel(direction);
-            restartAutoplay();
-        }
-
         // Event listeners for controls
         if (prevButton) {
             prevButton.addEventListener('click', () => {
-                goToSlide((currentSlide - 1 + slideCount) % slideCount);
+                goToSlide(currentSlide - 1);
             });
         }
 
         if (nextButton) {
             nextButton.addEventListener('click', () => {
-                goToSlide((currentSlide + 1) % slideCount);
+                goToSlide(currentSlide + 1);
             });
         }
 
@@ -392,7 +393,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-
         carousel.addEventListener('mouseleave', () => {
             if (slides[currentSlide]) {
                 const bgImage = slides[currentSlide].querySelector('.parallax-bg');
@@ -405,8 +405,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Autoplay functionality
         function startAutoplay() {
             autoplayInterval = setInterval(() => {
-                goToSlide((currentSlide + 1) % slideCount);
-            }, 10000);
+                goToSlide(currentSlide + 1);
+            }, 10000); 
         }
 
         function restartAutoplay() {
@@ -416,15 +416,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize the carousel
         function initCarousel() {
+            // Initialize the first slide
             slides[0].style.opacity = '1';
             slides[0].style.display = 'flex';
             slides[0].classList.add('active');
+            // Hide other slides
             for (let i = 1; i < slides.length; i++) {
                 slides[i].style.opacity = '0';
                 slides[i].style.display = 'none';
             }
-            // Animate text in first slide
-            animateSlideText(slides[0]);
+            updateIndicators();
+            updateHeroContent();
             startAutoplay();
         }
 
@@ -447,20 +449,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Animation on scroll for other sections
     const animateOnScroll = document.querySelectorAll('.animate-on-scroll');
-
+    
     const observerOptions = {
         threshold: 0.2,
         rootMargin: '0px 0px -100px 0px'
     };
-
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const el = entry.target;
                 const animation = el.getAttribute('data-animation');
-
+                
                 el.classList.add('animated');
-
+                
                 if (animation === 'fade-right') {
                     el.style.animation = 'fadeInRight 1s forwards';
                 } else if (animation === 'fade-left') {
@@ -468,12 +470,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     el.style.animation = 'fadeInUp 1s forwards';
                 }
-
+                
                 observer.unobserve(el);
             }
         });
     }, observerOptions);
-
+    
     animateOnScroll.forEach(el => {
         observer.observe(el);
     });
@@ -502,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
     });
-
+    
     sections.forEach(section => {
         sectionObserver.observe(section);
     })
@@ -514,13 +516,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollPosition = window.scrollY;
             const sectionTop = sponsorsSection.offsetTop;
             const sectionHeight = sponsorsSection.offsetHeight;
-
+            
             // Only apply effect when section is in viewport
-            if (scrollPosition > sectionTop - window.innerHeight &&
+            if (scrollPosition > sectionTop - window.innerHeight && 
                 scrollPosition < sectionTop + sectionHeight) {
                 const parallaxOffset = (scrollPosition - (sectionTop - window.innerHeight)) * 0.2;
                 sponsorsSection.style.backgroundPosition = `center ${50 + (parallaxOffset / 10)}%`;
-
+                
                 // Add fluid movement to sponsor cards
                 const sponsorCards = sponsorsSection.querySelectorAll('.sponsor-card');
                 sponsorCards.forEach((card, index) => {
@@ -535,32 +537,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryScroller = document.querySelector('.gallery-scroller');
     const scrollLeftBtn = document.getElementById('scroll-left');
     const scrollRightBtn = document.getElementById('scroll-right');
-
+    
     if (galleryScroller && scrollLeftBtn && scrollRightBtn) {
         const scrollAmount = 400; // Amount to scroll in pixels
-
+        
         scrollLeftBtn.addEventListener('click', () => {
             smoothScroll(-scrollAmount);
         });
-
+        
         scrollRightBtn.addEventListener('click', () => {
             smoothScroll(scrollAmount);
         });
-
+        
         function smoothScroll(amount) {
             const currentScroll = galleryScroller.scrollLeft;
             const targetScroll = currentScroll + amount;
-
+            
             // Apply CSS animation
             galleryScroller.style.setProperty('--scroll-distance', `-${amount}px`);
             galleryScroller.classList.add('animating');
-
+            
             setTimeout(() => {
                 galleryScroller.classList.remove('animating');
                 galleryScroller.scrollLeft = targetScroll;
             }, 500); // Match the animation duration
         }
-
+        
         // Add hover effect when mouse moves over gallery items
         const galleryItems = document.querySelectorAll('.gallery-item');
         galleryItems.forEach(item => {
@@ -568,10 +570,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const { left, top, width, height } = item.getBoundingClientRect();
                 const x = (e.clientX - left) / width - 0.5;
                 const y = (e.clientY - top) / height - 0.5;
-
+                
                 item.style.transform = `scale(1.05) perspective(1000px) rotateY(${x * 10}deg) rotateX(${y * -10}deg)`;
             });
-
+            
             item.addEventListener('mouseleave', () => {
                 item.style.transform = 'scale(1) rotateY(0) rotateX(0)';
             });
@@ -581,18 +583,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll animations
     function initScrollAnimations() {
         const revealElements = document.querySelectorAll('.reveal');
-
+        
         const revealOnScroll = function() {
             revealElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-
+                
                 if (elementTop < windowHeight - 100) {
                     element.classList.add('active');
                 }
             });
         };
-
+        
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
     }
@@ -600,11 +602,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize text animations
     function initTextAnimations() {
         const animatedTexts = document.querySelectorAll('.animate-text');
-
+        
         animatedTexts.forEach((text, index) => {
             const textContent = text.textContent;
             text.textContent = '';
-
+            
             Array.from(textContent).forEach((letter, letterIndex) => {
                 const span = document.createElement('span');
                 span.textContent = letter === ' ' ? ' ' : letter;
@@ -618,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize floating elements
     function initFloatingElements() {
         const floatingElements = document.querySelectorAll('.floating');
-
+        
         floatingElements.forEach((element, index) => {
             element.style.animationDelay = `${index * 0.2}s`;
         });
@@ -631,13 +633,13 @@ document.addEventListener('DOMContentLoaded', function() {
         cards.forEach(card => {
             card.classList.add('card-hover');
         });
-
+        
         // Image hover effects
         const imageContainers = document.querySelectorAll('.gallery-item, .team-image');
         imageContainers.forEach(container => {
             container.classList.add('image-hover');
         });
-
+        
         // Button hover effects
         const buttons = document.querySelectorAll('button, .btn, a[href]:not(nav a)');
         buttons.forEach(button => {
@@ -662,7 +664,7 @@ document.addEventListener('DOMContentLoaded', function() {
     serviceCards.forEach((card, index) => {
         card.classList.add('reveal');
         card.style.transitionDelay = `${index * 0.1}s`;
-
+        
         // Add staggered entrance animation
         card.style.opacity = '0';
         card.style.transform = 'scale(0.9) translateY(40px)';
@@ -686,31 +688,31 @@ document.addEventListener('DOMContentLoaded', function() {
         if (heroSection) {
             const particlesContainer = document.createElement('div');
             particlesContainer.className = 'hero-particles';
-
+            
             // Create particles
             for (let i = 0; i < 20; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'hero-particle';
-
+                
                 // Random size between 3px and 8px
                 const size = Math.random() * 5 + 3;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-
+                
                 // Random position
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-
+                
                 // Random animation duration and delay
                 particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
                 particle.style.animationDelay = `${Math.random() * 5}s`;
-
+                
                 particlesContainer.appendChild(particle);
             }
-
+            
             heroSection.appendChild(particlesContainer);
         }
-
+        
         // Add advanced hover animations to service cards
         const serviceCards = document.querySelectorAll('.service-card');
         serviceCards.forEach(card => {
@@ -724,7 +726,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-
+        
         // Add ripple effect to buttons
         const buttons = document.querySelectorAll('button, .btn, a[href]:not(nav a)');
         buttons.forEach(button => {
@@ -732,20 +734,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 const rect = button.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-
+                
                 const ripple = document.createElement('span');
                 ripple.className = 'ripple-effect';
                 ripple.style.left = x + 'px';
                 ripple.style.top = y + 'px';
-
+                
                 button.appendChild(ripple);
-
+                
                 setTimeout(() => {
                     ripple.remove();
                 }, 600);
             });
         });
-
+        
         // Animate scroll to sections when clicking on nav links
         const navLinks = document.querySelectorAll('nav a[href^="#"]');
         navLinks.forEach(link => {
@@ -753,7 +755,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-
+                
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 100,
@@ -762,7 +764,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-
+        
         // Add typing animation to headings
         const sectionHeadings = document.querySelectorAll('section h2');
         sectionHeadings.forEach(heading => {
@@ -774,10 +776,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }, { threshold: 0.5 });
-
+            
             observer.observe(heading);
         });
-
+        
         // Add parallax effect to all major sections
         window.addEventListener('scroll', () => {
             const parallaxSections = document.querySelectorAll('section');
@@ -785,12 +787,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const scrollPosition = window.scrollY;
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
-
-                if (scrollPosition > sectionTop - window.innerHeight &&
+                
+                if (scrollPosition > sectionTop - window.innerHeight && 
                     scrollPosition < sectionTop + sectionHeight) {
                     const yPos = (scrollPosition - sectionTop) * 0.2;
                     section.style.backgroundPositionY = `${yPos}px`;
-
+                    
                     // Apply subtle rotation to cards inside visible sections
                     const cards = section.querySelectorAll('.card, .service-card, .article-card, .sponsor-card');
                     cards.forEach((card, index) => {
@@ -800,7 +802,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-
+        
         // Enhanced card animations
         const allCards = document.querySelectorAll('.service-card, .article-card, .sponsor-card');
         allCards.forEach(card => {
@@ -808,24 +810,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-
+                
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-
+                
                 const rotateX = (y - centerY) / 10;
                 const rotateY = (centerX - x) / 10;
-
+                
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-                card.style.boxShadow = `0 10px 20px rgba(0, 0, 0, 0.2),
+                card.style.boxShadow = `0 10px 20px rgba(0, 0, 0, 0.2), 
                                         ${(x - centerX) / 10}px ${(y - centerY) / 10}px 10px rgba(0, 0, 0, 0.1)`;
             });
-
+            
             card.addEventListener('mouseleave', function() {
                 card.style.transform = '';
                 card.style.boxShadow = '';
             });
         });
-
+        
         // Add scroll-driven animations to images
         const images = document.querySelectorAll('img:not(.h-20)');
         const imageObserver = new IntersectionObserver(entries => {
@@ -836,7 +838,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { threshold: 0.1 });
-
+        
         images.forEach(image => {
             imageObserver.observe(image);
         });
@@ -849,7 +851,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (backToTopButton) {
         // Initially hide the button
         backToTopButton.classList.add('hidden');
-
+        
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
                 backToTopButton.classList.remove('hidden');
@@ -859,7 +861,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTopButton.classList.remove('flex');
             }
         });
-
+        
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -867,45 +869,45 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
+    
     // Add scroll buttons functionality for sponsors section
     const sponsorsContainer = document.querySelector('.sponsors-container');
     const scrollSponsorsLeftBtn = document.getElementById('scroll-sponsors-left');
     const scrollSponsorsRightBtn = document.getElementById('scroll-sponsors-right');
-
+    
     if (sponsorsContainer && scrollSponsorsLeftBtn && scrollSponsorsRightBtn) {
         const scrollAmount = 340; // Width of one card + margin
-
+        
         scrollSponsorsLeftBtn.addEventListener('click', () => {
             const currentScroll = sponsorsContainer.scrollLeft;
             sponsorsContainer.style.scrollBehavior = 'smooth';
-
+            
             sponsorsContainer.classList.add('scrolling-left');
             setTimeout(() => {
                 sponsorsContainer.classList.remove('scrolling-left');
             }, 500);
-
+            
             sponsorsContainer.scrollTo({
                 left: currentScroll - scrollAmount,
                 behavior: 'smooth'
             });
         });
-
+        
         scrollSponsorsRightBtn.addEventListener('click', () => {
             const currentScroll = sponsorsContainer.scrollLeft;
             sponsorsContainer.style.scrollBehavior = 'smooth';
-
+            
             sponsorsContainer.classList.add('scrolling-right');
             setTimeout(() => {
                 sponsorsContainer.classList.remove('scrolling-right');
             }, 500);
-
+            
             sponsorsContainer.scrollTo({
                 left: currentScroll + scrollAmount,
                 behavior: 'smooth'
             });
         });
-
+        
         sponsorsContainer.addEventListener('wheel', (e) => {
             e.preventDefault();
             const delta = Math.sign(e.deltaY);
@@ -915,4 +917,5 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
 });

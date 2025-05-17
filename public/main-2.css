@@ -19,6 +19,10 @@
         opacity: 1;
         transform: translateY(0);
     }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 @keyframes fadeInRight {
@@ -54,6 +58,10 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.6;
     }
 }
 
@@ -385,8 +393,20 @@
 
 @keyframes slideInDown {
     from {
-        transform: translateY(-10px);
-        opacity: 0.8;
+        transform: translateY(-5px);
+        opacity: 0.95;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
     }
 
     to {
@@ -448,6 +468,18 @@
 
 .carousel-slide.zoom-in {
     animation: zoom-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.carousel-slide.fade-out {
+    opacity: 0;
+    transform: scale(0.95) translateY(-15px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.carousel-slide.fade-in {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 /* Animation Delays */
@@ -585,7 +617,7 @@ section>a,
 
 .scrolled-nav-link {
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000);
     font-size: 0.875rem !important;
 }
 
@@ -613,24 +645,24 @@ section>a,
     background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
 }
 
-/* Header transition styles */
+/* Enhanced Header transition styles */
 header {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 header.scrolled {
-    animation: slideInDown 0.4s forwards;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
 }
 
 header.scrolled .py-8,
 header.scrolled .py-4 {
-    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: padding 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 header.scrolled .h-20,
 header.scrolled .h-12 {
-    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: height 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 header.scrolled:after {
@@ -639,6 +671,6 @@ header.scrolled:after {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
 }
