@@ -1,3 +1,6 @@
+  @php
+      $webSiteInfo = \App\Models\WebSiteInfo::first();
+  @endphp
   <!-- Header avec animation -->
   <header class="bg-transparent text-white  fixed w-full z-50 transition-all duration-300" id="header">
       <div class="bg-white text-gray-800 w-full transition-all duration-300" id="contact-info-section">
@@ -8,9 +11,7 @@
                           class="flex items-center space-x-2 transition-transform hover:translate-y-[-2px] hover:text-blue-600 duration-300">
                           <i class="fa fa-map-marker-alt text-blue-900" aria-hidden="true"></i>
                           <span class="text-gray-700 text-xs md:text-sm">
-                              <span class="font-bold text-black">Cabinet</span> 03,Pièrre Malagano, Terminus golf, Lshi,
-                              RDC
-                              Fuastin
+                              <span class="font-bold text-black">Cabinet</span> {{ $webSiteInfo->address ?? 'Adresse' }}
                           </span>
                       </div>
                       <div
@@ -18,7 +19,7 @@
                           <i class="fas fa-phone text-blue-900 text-xs md:text-sm"></i>
                           <span class="text-gray-800 text-xs md:text-sm">
                               <span class="font-bold text-black">Tél </span>
-                              +243 12 345 6789
+                              {{ $webSiteInfo->phone ?? '+243' }}
                           </span>
                       </div>
                       <div
@@ -26,7 +27,7 @@
                           <i class="fas fa-envelope text-blue-900 text-xs md:text-sm"></i>
                           <span class="text-gray-800 text-xs md:text-sm">
                               <span class="font-bold text-black">Email </span>
-                              contact@emkminesoffice.org
+                              {{ $webSiteInfo->email ?? 'votre email' }} | {{ $webSiteInfo->other_email ?? '+243' }}
                           </span>
                       </div>
                   </div>
@@ -58,10 +59,11 @@
       <div class="container mx-auto px-4">
           <div class="flex justify-between items-center py-8">
               <div class="flex items-center space-x-6">
-                  <img src="{{ asset('logo-2.png') }}" alt="EMK Logo" class="h-32 w-auto animate-pulse rounded-full ">
+                  <img src="{{ asset('storage/' . $webSiteInfo->logo ?? 'logo.jpg') }}" alt="EMK Logo"
+                      class="h-32 w-auto animate-pulse rounded-full ">
                   <div class="md:block hidden">
-                      <h1 class="text-3xl font-bold text-uppercase text-white">EMK MINES OFFICE</h1>
-                      <p class="text-md text-gray-300">Cabinet du mandataire en mines et carrières</p>
+                      <h1 class="text-3xl font-bold text-uppercase text-white">{{ $webSiteInfo->name }}</h1>
+                      <p class="text-md text-gray-300">{{ $webSiteInfo->description }}</p>
                   </div>
               </div>
 
@@ -194,11 +196,15 @@
               <div class="space-y-2 text-sm">
                   <div class="flex items-center space-x-2">
                       <i class="fas fa-phone text-blue-300"></i>
-                      <span class="text-blue-100">+243 12 345 6789</span>
+                      <span class="text-blue-100">{{ $webSiteInfo->phone ?? '+243' }}</span>
                   </div>
                   <div class="flex items-center space-x-2">
                       <i class="fas fa-envelope text-blue-300"></i>
-                      <span class="text-blue-100">contact@emkminesoffice.org</span>
+                      <span class="text-blue-100">{{ $webSiteInfo->email ?? 'Votre email' }}</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                      <i class="fas fa-envelope text-blue-300"></i>
+                      <span class="text-blue-100">{{ $webSiteInfo->other_email ?? 'Votre email' }}</span>
                   </div>
                   <div class="flex items-center space-x-4 mt-2">
                       <a href="#" class="text-blue-300 hover:text-white transition-colors duration-300">

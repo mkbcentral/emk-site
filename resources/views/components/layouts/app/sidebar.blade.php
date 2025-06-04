@@ -1,132 +1,135 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
-    <head>
-        @include('partials.head')
-    </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
-            <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-            <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
-                <x-app-logo />
-            </a>
+<head>
+    @include('partials.head-main')
+</head>
 
-            <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                </flux:navlist.group>
-            </flux:navlist>
+<body class="bg-gray-100 h-screen flex overflow-hidden">
+    @include('partials.side-content')
 
-            <flux:spacer />
-
-            <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                {{ __('Repository') }}
-                </flux:navlist.item>
-
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                {{ __('Documentation') }}
-                </flux:navlist.item>
-            </flux:navlist>
-
-            <!-- Desktop User Menu -->
-            <flux:dropdown position="bottom" align="start">
-                <flux:profile
-                    :name="auth()->user()->name"
-                    :initials="auth()->user()->initials()"
-                    icon-trailing="chevrons-up-down"
-                />
-
-                <flux:menu class="w-[220px]">
-                    <flux:menu.radio.group>
-                        <div class="p-0 text-sm font-normal">
-                            <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
-                                <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
-                                    <span
-                                        class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
-                                    >
-                                        {{ auth()->user()->initials() }}
-                                    </span>
-                                </span>
-
-                                <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Top Navigation -->
+        <header class="bg-white shadow-sm z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center md:hidden">
+                        <button id="sidebarToggle" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <input
+                                class="border border-gray-300 rounded-md py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                type="text" placeholder="Rechercher...">
+                            <div class="absolute left-3 top-2.5 text-gray-400">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex items-center">
+                            <button id="notificationBtn" class="p-2 text-gray-500 hover:text-gray-700 mr-3 relative">
+                                <i class="fas fa-bell"></i>
+                                <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
+                            </button>
+                            <!-- Notification Dropdown -->
+                            <div id="notificationDropdown"
+                                class="absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg overflow-hidden z-20 transform scale-0 opacity-0 origin-top-right transition-all duration-200">
+                                <div class="px-4 py-3 border-b border-gray-200">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-sm font-semibold text-gray-700">Notifications</h3>
+                                        <span
+                                            class="text-xs font-medium text-blue-600 cursor-pointer hover:text-blue-800">Marquer
+                                            tout comme lu</span>
+                                    </div>
+                                </div>
+                                <div class="max-h-72 overflow-y-auto">
+                                    <div class="px-4 py-3 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-start">
+                                            <div class="flex-shrink-0 bg-blue-500 rounded-full p-2 text-white">
+                                                <i class="fas fa-gem text-xs"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Nouveau projet créé</p>
+                                                <p class="text-xs text-gray-500">Mine de Cuivre - Expansion Nord a été
+                                                    créé avec succès.</p>
+                                                <p class="text-xs text-gray-400 mt-1">Il y a 10 minutes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-start">
+                                            <div class="flex-shrink-0 bg-green-500 rounded-full p-2 text-white">
+                                                <i class="fas fa-file-alt text-xs"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Rapport approuvé</p>
+                                                <p class="text-xs text-gray-500">Le rapport mensuel d'exploitation a
+                                                    été approuvé.</p>
+                                                <p class="text-xs text-gray-400 mt-1">Il y a 1 heure</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-start">
+                                            <div class="flex-shrink-0 bg-yellow-500 rounded-full p-2 text-white">
+                                                <i class="fas fa-exclamation text-xs"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Maintenance programmée</p>
+                                                <p class="text-xs text-gray-500">Maintenance pour Excavatrice Komatsu
+                                                    PC8000 prévue.</p>
+                                                <p class="text-xs text-gray-400 mt-1">Il y a 3 heures</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <div class="flex items-start">
+                                            <div class="flex-shrink-0 bg-red-500 rounded-full p-2 text-white">
+                                                <i class="fas fa-exclamation-triangle text-xs"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Alerte d'incident</p>
+                                                <p class="text-xs text-gray-500">Un incident a été signalé sur le site
+                                                    B - Intervention requise.</p>
+                                                <p class="text-xs text-gray-400 mt-1">Il y a 5 heures</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3 bg-gray-50 text-center">
+                                    <a href="#" class="text-sm text-blue-600 font-medium hover:text-blue-800">Voir
+                                        toutes les
+                                        notifications</a>
                                 </div>
                             </div>
                         </div>
-                    </flux:menu.radio.group>
-
-                    <flux:menu.separator />
-
-                    <flux:menu.radio.group>
-                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
-                    </flux:menu.radio.group>
-
-                    <flux:menu.separator />
-
-                    <form method="POST" action="{{ route('logout') }}" class="w-full">
-                        @csrf
-                        <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
-                            {{ __('Log Out') }}
-                        </flux:menu.item>
-                    </form>
-                </flux:menu>
-            </flux:dropdown>
-        </flux:sidebar>
-
-        <!-- Mobile User Menu -->
-        <flux:header class="lg:hidden">
-            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
-
-            <flux:spacer />
-
-            <flux:dropdown position="top" align="end">
-                <flux:profile
-                    :initials="auth()->user()->initials()"
-                    icon-trailing="chevron-down"
-                />
-
-                <flux:menu>
-                    <flux:menu.radio.group>
-                        <div class="p-0 text-sm font-normal">
-                            <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
-                                <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
-                                    <span
-                                        class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
-                                    >
-                                        {{ auth()->user()->initials() }}
-                                    </span>
-                                </span>
-
-                                <div class="grid flex-1 text-start text-sm leading-tight">
-                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
-                                </div>
+                        <div class="ml-3 relative">
+                            <div class="flex items-center">
+                                <img class="h-8 w-8 rounded-full"
+                                    src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff"
+                                    alt="Admin">
+                                <span class="ml-2 hidden md:block">Admin</span>
                             </div>
                         </div>
-                    </flux:menu.radio.group>
+                        <button id="logoutBtn" class="ml-4 text-gray-600 hover:text-red-600 flex items-center">
+                            <i class="fas fa-sign-out-alt mr-1"></i>
+                            <span class="hidden md:inline">Déconnexion</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-                    <flux:menu.separator />
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-6 bg-gray-100">
+            {{ $slot }}
+        </main>
+    </div>
+    @stack('js')
+</body>
 
-                    <flux:menu.radio.group>
-                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
-                    </flux:menu.radio.group>
-
-                    <flux:menu.separator />
-
-                    <form method="POST" action="{{ route('logout') }}" class="w-full">
-                        @csrf
-                        <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
-                            {{ __('Log Out') }}
-                        </flux:menu.item>
-                    </form>
-                </flux:menu>
-            </flux:dropdown>
-        </flux:header>
-
-        {{ $slot }}
-
-        @fluxScripts
-    </body>
 </html>

@@ -1,0 +1,140 @@
+/* Theme CSS for Cabinet Minier dashboard */
+
+/* Base theme variables */
+:root {
+  /* Light theme (default) */
+  --bg-primary: #f9fafb;
+  --bg-secondary: #ffffff;
+  --bg-sidebar: #1f2937;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-blue: #2563eb;
+  --accent-green: #059669;
+  --accent-purple: #7c3aed;
+  --accent-red: #dc2626;
+  --accent-amber: #d97706;
+  
+  /* Current accent color (default: blue) */
+  --accent-color: var(--accent-blue);
+  
+  /* Transition for theme switching */
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark theme variables */
+.dark-mode {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-sidebar: #0f172a;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+}
+
+/* Accent color data attributes */
+[data-accent-color="blue"] {
+  --accent-color: var(--accent-blue);
+}
+
+[data-accent-color="green"] {
+  --accent-color: var(--accent-green);
+}
+
+[data-accent-color="purple"] {
+  --accent-color: var(--accent-purple);
+}
+
+[data-accent-color="red"] {
+  --accent-color: var(--accent-red);
+}
+
+[data-accent-color="amber"] {
+  --accent-color: var(--accent-amber);
+}
+
+/* Apply theme to elements */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--theme-transition);
+}
+
+.bg-white, .bg-gray-50 {
+  transition: var(--theme-transition);
+}
+
+.dark-mode .bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode .bg-gray-50 {
+  background-color: #2d3748 !important;
+}
+
+.dark-mode .text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+.dark-mode .text-gray-800 {
+  color: #e2e8f0 !important;
+}
+
+.dark-mode .text-gray-700 {
+  color: #cbd5e0 !important;
+}
+
+.dark-mode .text-gray-600 {
+  color: #a0aec0 !important;
+}
+
+.dark-mode .text-gray-500 {
+  color: var(--text-secondary) !important;
+}
+
+.dark-mode .border-gray-200 {
+  border-color: #4a5568 !important;
+}
+
+.dark-mode .border-gray-300 {
+  border-color: #4a5568 !important;
+}
+
+/* Dark mode for notification dropdown */
+.dark-mode #notificationDropdown {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode #notificationDropdown .bg-gray-50 {
+  background-color: #2d3748 !important;
+}
+
+.dark-mode #notificationDropdown .border-gray-100, 
+.dark-mode #notificationDropdown .border-gray-200 {
+  border-color: #4a5568 !important;
+}
+
+.dark-mode #notificationDropdown .hover\:bg-gray-50:hover {
+  background-color: #374151 !important;
+}
+
+/* Accent color application */
+.bg-blue-600, .hover\:bg-blue-700:hover, .active-tab {
+  background-color: var(--accent-color) !important;
+}
+
+.text-blue-600 {
+  color: var(--accent-color) !important;
+}
+
+.border-blue-600 {
+  border-color: var(--accent-color) !important;
+}
+
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: var(--accent-color) !important;
+}
+
+/* No animations class */
+.no-animations * {
+  transition: none !important;
+  animation: none !important;
+}

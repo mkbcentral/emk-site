@@ -1,14 +1,17 @@
+@php
+    $webSiteInfo = \App\Models\WebSiteInfo::first();
+@endphp
 <!-- Footer -->
 <footer class="bg-gradient-to-bl from-blue-900 via-gray-900 to-black text-white py-12">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
                 <div>
-                    <img src="{{ asset('logo.jpg') }}" alt="EMK Logo" class="h-10 w-auto">
+                    <img src="{{ asset('storage/' . $webSiteInfo->logo) }}" alt="EMK Logo" class="h-10 w-auto">
                     <div>
-                        <h3 class="text-xl font-bold">{{ config('app.name') }}</h3>
+                        <h3 class="text-xl font-bold">{{ $webSiteInfo->name }}</h3>
                         <p class="text-sm text-gray-400">
-                            Cabinet mandataire en mines et carrières
+                            {{ $webSiteInfo->description }}
                         </p>
                     </div>
                 </div>
@@ -60,17 +63,19 @@
                 <h4 class="text-lg font-semibold mb-4">Contact</h4>
                 <div class="space-y-2">
                     <p class="flex items-center text-gray-400">
-                        03, Avenue Pierre Malagano, Route des Poids lourds,
-                        Terminus Golf Faustin, Commune de
-                        Lubumbashi, Lubumbashi Haut-Katanga RDC.
+                        {{ $webSiteInfo->address }}
                     </p>
                     <p class="flex items-center text-gray-400">
                         <i class="fas fa-phone w-5 mr-2 text-blue-500"></i>
-                        +243 995 226 900
+                        {{ $webSiteInfo->phone }}
                     </p>
                     <p class="flex items-center text-gray-400">
                         <i class="fas fa-envelope w-5 mr-2 text-blue-500"></i>
-                        contact@emkminesoffice.org
+                        {{ $webSiteInfo->email }}
+                    </p>
+                    <p class="flex items-center text-gray-400">
+                        <i class="fas fa-envelope w-5 mr-2 text-blue-500"></i>
+                        {{ $webSiteInfo->other_email }}
                     </p>
                     <a href="index.html#contact"
                         class=" mt-4 bg-blue-700 text-white px-4 py-2

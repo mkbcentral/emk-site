@@ -1,3 +1,6 @@
+ @php
+     $galleries = App\Models\Gallery::all();
+ @endphp
  <!-- Section Galerie -->
  <section id="gallery" class="py-20 bg-white overflow-hidden" data-aos="fade-up">
      <div class="container mx-auto px-4">
@@ -8,14 +11,10 @@
 
          <div class="gallery-container relative">
              <div class="gallery-scroller flex space-x-6 overflow-x-auto pb-8 scroll-smooth">
-                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
-                     style="background-image: url('client3.jpg')" data-aos="zoom-in"></div>
-                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
-                     style="background-image: url('client2.jpg')" data-aos="zoom-in" data-aos-delay="100"></div>
-                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
-                     style="background-image: url('expertise.jpg')" data-aos="zoom-in" data-aos-delay="200"></div>
-                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
-                     style="background-image: url('client1.jpg')" data-aos="zoom-in" data-aos-delay="300"></div>
+                 @foreach ($galleries as $gallery)
+                     <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                         style="background-image: url({{ 'storage/' . $gallery->image }})" data-aos="zoom-in"></div>
+                 @endforeach
              </div>
 
              <div class="gallery-controls flex justify-center mt-6 space-x-4" data-aos="fade-up">

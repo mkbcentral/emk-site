@@ -1,3 +1,6 @@
+@php
+    $mission = App\Models\Mission::first();
+@endphp
 <x-layouts.app.main>
     <!-- Main Content with Hero Banner -->
     <section class="pt-36 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
@@ -22,7 +25,7 @@
                     <div class="lg:w-1/4">
                         <div class="bg-white rounded-xl shadow-md p-6 sticky top-36">
                             <h3 class="text-xl font-semibold text-blue-900 mb-6 pb-3 border-b border-gray-200">Explorer
-                                notre histoire</h3>
+                                Notre histoire</h3>
                             <ul class="space-y-2">
                                 <li>
                                     <button data-section="fondation"
@@ -31,7 +34,7 @@
                                     </button>
                                 </li>
                                 <li>
-                                    <button data-section="expansion"
+                                    <button data-section="mission"
                                         class="history-nav-btn w-full text-left px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors duration-300 font-medium flex items-center">
                                         <i class="fas fa-rocket mr-2"></i> Mission
                                     </button>
@@ -73,41 +76,23 @@
                             </div>
                         </div>
 
-                        <!-- Expansion Section -->
-                        <div id="expansion" class="history-section hidden">
+                        <!-- Mission Section -->
+                        <div id="mission" class="history-section hidden">
                             <h2 class="text-3xl font-bold text-blue-900 mb-6">Notre mission</h2>
 
                             <div class="mb-8">
-                                <img src="{{ asset('avocat2.jpg') }}" alt="L'équipe EMK en pleine expansion"
+                                <img src="{{ asset('storage/' . $mission->image) }}"
+                                    alt="L'équipe EMK en pleine expansion"
                                     class="w-full h-80 object-cover object-center rounded-xl shadow-md mb-4">
-                                <p class="text-gray-500 text-sm italic">Notre mission : accompagner nos clients dans la
-                                    réussite de leurs projets miniers, en garantissant expertise, intégrité et
-                                    engagement au service du développement durable.</p>
-                            </div>
 
+                            </div>
                             <div class="prose max-w-none text-gray-700 space-y-4">
                                 <p>
-                                    Au regard de l’amplitude exponentielle des abus et dérapage que présente désormais
-                                    le secteur des mines, EMK MINES OFFICE dans sa triple mission légale qui lui est
-                                    reconnue sur pied de l’article 25 de la Loi n° 007/2002 du 11 juillet 2002 portant
-                                    Code minier telle que modifiée et complétée par la Loi n° 18/001 du 09 mars 2018,
-                                    rassure de sa disponibilité à pouvoir assurer avec abnégation et diligence une
-                                    passerelle stratégique entre les opérateurs miniers et l’administration minière,
-                                    fiscale et parafiscale.
-                                    EMK MINES OFFICES offre à ses clients, personnes morales de droit congolais et
-                                    celles de droit étranger, la possibilité d’élire domicile pour tous leurs actes
-                                    relatifs aux droits miniers et de carrières à son cabinet.
-                                    En vue de procurer satisfaction à ses clients au travers de la défense de leurs
-                                    intérêts à tous les niveaux, EMK MINES OFFICES s’engage à entretenir des relations
-                                    de proximité, de collaboration et de partenariat avec les institutions étatiques,
-                                    services et bureaux tant provinciaux, nationaux qu’internationaux qui interviennent
-                                    dans la législation minière en vigueur en République Démocratique du Congo.
+                                    {{ $mission->description }}
                                 </p>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
