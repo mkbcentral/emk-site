@@ -74,7 +74,7 @@
         <div class="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @forelse ($galleries as $gallery)
                 <div class="relative group rounded-lg overflow-hidden shadow border border-gray-200">
-                    <img src="{{ asset('storage/' . $gallery->image) }}" alt="Image galerie"
+                    <img src="{{ Storage::url($gallery->image) }}" alt="Image galerie"
                         class="w-full h-40 object-cover group-hover:scale-105 transition-all duration-300">
                     <div
                         class="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity duration-300">
