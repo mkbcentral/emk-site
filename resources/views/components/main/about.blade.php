@@ -6,7 +6,7 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 animate-on-scroll" data-animation="fade-right">
-                <img src="{{ asset('storage/' . $about->image) }}" alt="Notre équipe" class="rounded-xl shadow-xl w-full">
+                <img src="{{ asset('expertises.jpg') }}" alt="Notre équipe" class="rounded-xl shadow-xl w-full">
             </div>
             <div class="md:w-1/2 animate-on-scroll" data-animation="fade-left">
                 <h2 class="text-3xl font-bold text-white mb-6">{{ $about->title }}</h2>

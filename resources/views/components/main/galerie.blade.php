@@ -11,10 +11,16 @@
 
          <div class="gallery-container relative">
              <div class="gallery-scroller flex space-x-6 overflow-x-auto pb-8 scroll-smooth">
-                 @foreach ($galleries as $gallery)
-                     <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
-                         style="background-image: url({{ 'storage/' . $gallery->image }})" data-aos="zoom-in"></div>
-                 @endforeach
+                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                     style="background-image: url(avocat2.jpg)" data-aos="zoom-in"></div>
+                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                     style="background-image: url(avocat3.jpg)" data-aos="zoom-in"></div>
+
+                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                     style="background-image: url(expertise.jpg)" data-aos="zoom-in"></div>
+                 <div class="gallery-item min-w-[300px] md:min-w-[400px] h-[300px] bg-cover bg-center rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                     style="background-image: url(expertises.jpg)" data-aos="zoom-in"></div>
+
              </div>
 
              <div class="gallery-controls flex justify-center mt-6 space-x-4" data-aos="fade-up">

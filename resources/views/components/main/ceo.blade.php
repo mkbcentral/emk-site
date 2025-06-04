@@ -8,7 +8,7 @@
             <div class="lg:w-1/3 animate-on-scroll" data-animation="fade-right">
                 <div class="relative">
                     <div class="absolute inset-0 bg-blue-100 rounded-xl transform rotate-6"></div>
-                    <img src="{{ asset('storage/' . $ceo->image) }}" alt="Directeur Général"
+                    <img src="{{ asset('avocat1.jpg') }}" alt="Directeur Général"
                         class="relative rounded-xl shadow-lg w-full object-cover h-[500px]">
                 </div>
             </div>

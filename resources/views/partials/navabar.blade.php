@@ -59,8 +59,7 @@
       <div class="container mx-auto px-4">
           <div class="flex justify-between items-center py-8">
               <div class="flex items-center space-x-6">
-                  <img src="{{ asset('storage/' . $webSiteInfo->logo ?? 'logo.jpg') }}" alt="EMK Logo"
-                      class="h-32 w-auto animate-pulse rounded-full ">
+                  <img src="{{ asset('logo-2.png') }}" alt="EMK Logo" class="h-32 w-auto animate-pulse rounded-full ">
                   <div class="md:block hidden">
                       <h1 class="text-3xl font-bold text-uppercase text-white">{{ $webSiteInfo->name }}</h1>
                       <p class="text-md text-gray-300">{{ $webSiteInfo->description }}</p>
@@ -244,7 +243,7 @@
                                   Historique</a>
                           </li>
                           <li><a href="{{ route('ceo') }}"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors 
+                                  class="block py-2 text-blue-100 hover:text-white transition-colors
                                   duration-300 border-b border-blue-700 pb-2">
                                   Mendataire en mines</a></li>
 
@@ -259,7 +258,7 @@
                       <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-expertise-menu">
                           <li>
                               <a href="#"
-                                  class="block py-2 text-blue-100 hover:text-white transition-colors 
+                                  class="block py-2 text-blue-100 hover:text-white transition-colors
                                   duration-300 border-b border-blue-700 pb-2">Législation
                               </a>
                           </li>
@@ -271,7 +270,7 @@
                               </div>
                               <ul class="pl-4 mt-2 space-y-2 hidden" id="mobile-contrats-menu">
                                   <li><a href="#"
-                                          class="block py-2 text-blue-100 hover:text-white transition-colors 
+                                          class="block py-2 text-blue-100 hover:text-white transition-colors
                                           duration-300 border-b border-blue-700 pb-2">Consultation</a>
                                   </li>
                                   <li><a href="#"
@@ -279,7 +278,7 @@
                                            transition-colors duration-300 border-b border-blue-700 pb-2">Ouverture
                                           dossier</a></li>
                                   <li><a href="#"
-                                          class="block py-2 text-blue-100 hover:text-white 
+                                          class="block py-2 text-blue-100 hover:text-white
                                           transition-colors duration-300">Ouverture
                                           dossier</a></li>
                               </ul>
