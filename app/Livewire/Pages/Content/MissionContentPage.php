@@ -13,6 +13,7 @@ class MissionContentPage extends Component
     public $title;
     public $description;
     public $image;
+    public $imagePath;
     public ?Mission $mission = null;
 
     protected $rules = [
@@ -27,7 +28,7 @@ class MissionContentPage extends Component
         if ($this->mission) {
             $this->title = $this->mission->title;
             $this->description = $this->mission->description;
-            $this->image = $this->mission->image;
+            $this->imagePath = $this->mission->image;
         }
     }
 
@@ -49,7 +50,7 @@ class MissionContentPage extends Component
 
         // Handle image upload if a new file is provided
         if ($this->image && is_object($this->image)) {
-            $imagePath = $this->image->store('about', 'public');
+            $imagePath = $this->image->store('mission', 'public');
         }
 
         if ($this->mission) {

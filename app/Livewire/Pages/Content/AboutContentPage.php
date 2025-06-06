@@ -12,7 +12,9 @@ class AboutContentPage extends Component
     //CRUD
     public $title;
     public $description;
-    public $image;
+    public  $image;
+    public $imageToShow;
+
     public ?About $about = null;
 
     protected $rules = [
@@ -27,7 +29,7 @@ class AboutContentPage extends Component
         if ($this->about) {
             $this->title = $this->about->title;
             $this->description = $this->about->description;
-            $this->image = $this->about->image;
+            $this->imageToShow = $this->about->image;
         }
     }
 

@@ -27,12 +27,15 @@
                 <div
                     class="relative rounded-xl overflow-hidden shadow-lg border-4 transition-all duration-300
                 {{ $errors->has('image') ? 'border-red-500' : 'border-transparent group-hover:border-blue-400' }}">
-                    @if ($mission?->image != null)
+                    @if ($image)
+                        <img src="{{ $image->temporaryUrl() }}" alt="A propos"
+                            class="w-full h-96 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
+                    @elseif ($mission?->image != null)
                         <img src="{{ asset('storage/' . $mission?->image) }}" alt="A propos"
-                            class="w-full h-72 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
+                            class="w-full h-96 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
                     @else
-                        <img src="{{ $image ? $image->temporaryUrl() : asset('empty.png') }}" alt="A propos"
-                            class="w-full h-72 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
+                        <img src="{{ asset('empty.png') }}" alt="A propos"
+                            class="w-full h-96 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
                     @endif
                     <div
                         class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity duration-300">
@@ -40,7 +43,16 @@
                     </div>
                 </div>
                 <input wire:model='image' id="imageUpload" type="file" accept="image/*" class="hidden">
+
             </label>
+
+            {{-- Barre de progression sous l'image --}}
+            <div wire:loading wire:target="image" class="w-full mt-2">
+                <div class="h-2 bg-gray-200 rounded">
+                    <div class="h-2 bg-blue-500 rounded animate-pulse" style="width: 80%"></div>
+                </div>
+                <span class="text-xs text-gray-500">Chargement en cours...</span>
+            </div>
             @error('image')
                 <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
             @enderror

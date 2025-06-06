@@ -14,6 +14,7 @@ class CeoInfoContentPage extends Component
     public $subtitle;
     public $description;
     public $image;
+    public $imagePath;
     public ?CeoInfo $ceoInfo = null;
 
     protected $rules = [
@@ -30,7 +31,7 @@ class CeoInfoContentPage extends Component
             $this->title = $this->ceoInfo->title;
             $this->subtitle = $this->ceoInfo->subtitle;
             $this->description = $this->ceoInfo->description;
-            $this->image = $this->ceoInfo->image;
+            $this->imagePath = $this->ceoInfo->image;
         }
     }
 
@@ -52,7 +53,7 @@ class CeoInfoContentPage extends Component
 
         // Handle image upload if a new file is provided
         if ($this->image && is_object($this->image)) {
-            $imagePath = $this->image->store('about', 'public');
+            $imagePath = $this->image->store('ceo', 'public');
         }
 
         if ($this->ceoInfo) {

@@ -31,7 +31,7 @@
         <label for="imageUpload" class="cursor-pointer block group w-72 md:w-96">
             <div
                 class="relative rounded-lg overflow-hidden shadow border-2 transition-all duration-300
-                {{ $errors->has('image') ? 'border-red-500' : 'border-gray-200 group-hover:border-blue-400' }}">
+            {{ $errors->has('image') ? 'border-red-500' : 'border-gray-200 group-hover:border-blue-400' }}">
                 @if ($image)
                     <img src="{{ $image->temporaryUrl() }}" alt="A propos"
                         class="w-full h-52 md:h-64 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
@@ -40,11 +40,16 @@
                         class="w-full h-52 md:h-64 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
                 @else
                     <img src="{{ asset('empty.png') }}" alt="A propos"
-                        class="w-full h-52 md:h-64 object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
+                        class="w-full h-52 md:h-64 object-fill group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
                 @endif
                 <div
                     class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity duration-300">
                     <span class="text-white text-sm font-semibold">Changer l'image</span>
+                </div>
+                <!-- Progress Bar -->
+                <div wire:loading wire:target="image" class="absolute bottom-0 left-0 w-full h-2 bg-gray-200">
+                    <div class="h-2 bg-blue-500 transition-all duration-300" x-data="{ progress: 0 }"
+                        x-init="window.livewire.on('upload-progress', value => { progress = value; });" x-bind:style="'width: ' + progress + '%'"></div>
                 </div>
             </div>
             <input wire:model='image' id="imageUpload" type="file" accept="image/*" class="hidden">
@@ -59,23 +64,29 @@
                     <i class="fas fa-pen mr-1"></i>
                     Modifier l'image
                 </button>
-
                 <button type="button" wire:click="resetForm()"
                     class="mt-2 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-4 py-2 rounded-lg shadow transition flex items-center justify-center gap-2">
                     <i class="fas fa-times mr-1"></i>
                     Annuler
                 </button>
             @endif
-
             @error('image')
                 <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
             @enderror
         </label>
+        <script>
+            document.addEventListener('alpine:init', () => {
+                window.livewire.on('upload-progress', value => {
+                    // This event is handled in Alpine above
+                });
+            });
+        </script>
+
         <div class="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @forelse ($galleries as $gallery)
                 <div class="relative group rounded-lg overflow-hidden shadow border border-gray-200">
                     <img src="{{ Storage::url($gallery->image) }}" alt="Image galerie"
-                        class="w-full h-40 object-cover group-hover:scale-105 transition-all duration-300">
+                        class="w-full h-60 object-cover group-hover:scale-105 transition-all duration-300">
                     <div
                         class="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity duration-300">
                         <button wire:click="getGallery({{ $gallery->id }})"

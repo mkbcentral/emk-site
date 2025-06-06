@@ -27,11 +27,14 @@
                 <div
                     class="relative rounded-full overflow-hidden shadow-lg border-4 transition-all duration-300 w-52 h-52
             {{ $errors->has('image') ? 'border-red-500' : 'border-transparent group-hover:border-blue-400' }}">
-                    @if ($ceoInfo?->image != null)
-                        <img src="{{ asset('storage/' . $ceoInfo?->image) }}" alt="A propos"
+                    @if ($image)
+                        <img src="{{ $image->temporaryUrl() }}" alt="A propos"
+                            class="w-full h-full object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
+                    @elseif ($ceoInfo?->image != null)
+                        <img src="{{ asset('storage/' . $imagePath) }}" alt="A propos"
                             class="w-full h-full object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
                     @else
-                        <img src="{{ $image ? $image->temporaryUrl() : asset('empty.png') }}" alt="A propos"
+                        <img src="{{ asset('empty.png') }}" alt="A propos"
                             class="w-full h-full object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-300">
                     @endif
                     <div
@@ -44,6 +47,14 @@
             @error('image')
                 <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
             @enderror
+
+            {{-- Barre de progression --}}
+            <div wire:loading wire:target="image" class="w-52 mt-3">
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-500 h-2.5 rounded-full animate-pulse" style="width: 80%"></div>
+                </div>
+                <span class="text-xs text-gray-500 mt-1 block text-center">Chargement en cours...</span>
+            </div>
         </div>
         <div class="mt-8 mx-auto bg-white p-6 rounded-xl shadow-lg border border-gray-100">
             <div>
